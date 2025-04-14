@@ -1,5 +1,17 @@
+import { motion, useInView } from "motion/react";
+import { useRef } from "react";
+
 const Home = () => {
     const mainColor = "#F87171";
+    const ref = useRef(null);
+    const isInView = useInView(ref);
+
+    const textMotionProps = {
+        initial: { y: "120%" },
+        animate: { y: isInView ? "0%" : "120%" },
+        transition: { duration: 0.4, delay: isInView ? 0.1 : 0 },
+    };
+
     return (
         <section
             style={{
@@ -17,17 +29,20 @@ const Home = () => {
             </div>
             <div className="flex-1/2"></div>
 
-            <div className="self-center absolute h-full text-[150px] leading-none font-black flex flex-col justify-center">
-                <div>
-                    <div>HE</div>
+            <motion.div
+                ref={ref}
+                className="self-center absolute h-full text-[150px] leading-[0.85] font-black flex flex-col justify-center"
+            >
+                <div className="overflow-hidden">
+                    <motion.div {...textMotionProps}>HE</motion.div>
                 </div>
-                <div>
-                    <div>
+                <div className="overflow-hidden">
+                    <motion.div {...textMotionProps}>
                         LLO
                         <span style={{ color: mainColor }}>.</span>
-                    </div>
+                    </motion.div>
                 </div>
-            </div>
+            </motion.div>
         </section>
     );
 };
