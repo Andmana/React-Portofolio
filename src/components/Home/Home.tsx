@@ -20,14 +20,24 @@ const Home = () => {
             className="relative flex justify-center items-stretch px-4 md:px-14 isolate"
             id="Home"
         >
-            <div className="flex-1/2" style={{ backgroundColor: mainColor }}>
+            {/* Left Side with Background and Scroll Text */}
+            <div className="flex-1" style={{ backgroundColor: mainColor }}>
                 <div className="absolute bottom-0 left-1/2 transform -translate-x-3/4 -translate-y-full animate-bounce">
-                    <div className="transform -rotate-90 font-semibold text-xl">
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: isInView ? 1 : 0 }}
+                        transition={{
+                            duration: isInView ? 2 : 0,
+                        }}
+                        className="-rotate-90 font-semibold text-xl"
+                    >
                         ← Scroll
-                    </div>
+                    </motion.div>
                 </div>
             </div>
-            <div className="flex-1/2"></div>
+
+            {/* Right Side (Empty for now) */}
+            <div className="flex-1" />
 
             <motion.div
                 ref={ref}
