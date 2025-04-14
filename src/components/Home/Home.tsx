@@ -1,5 +1,6 @@
 import { motion, useInView } from "motion/react";
 import { useRef } from "react";
+import iconArrow from "../../assets/icon-arrow-2.svg";
 
 const Home = () => {
     const mainColor = "#F87171";
@@ -22,16 +23,20 @@ const Home = () => {
         >
             {/* Left Side with Background and Scroll Text */}
             <div className="flex-1" style={{ backgroundColor: mainColor }}>
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-3/4 -translate-y-full animate-bounce">
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-3/4 -translate-y-[200%] animate-bounce">
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: isInView ? 1 : 0 }}
                         transition={{
                             duration: isInView ? 2 : 0,
                         }}
-                        className="-rotate-90 font-semibold text-xl"
+                        className="-rotate-90 font-semibold  text-xl flex items-center justify-center gap-2"
                     >
-                        ← Scroll
+                        <img
+                            src={iconArrow}
+                            className="w-5 h-5 -rotate-90 dark:filter-(--icon-filter)"
+                        />
+                        Scroll
                     </motion.div>
                 </div>
             </div>
@@ -39,9 +44,9 @@ const Home = () => {
             {/* Right Side (Empty for now) */}
             <div className="flex-1" />
 
-            <motion.div
+            <div
                 ref={ref}
-                className="self-center absolute h-full leading-[0.85] text-header flex flex-col justify-center"
+                className="absolute h-full leading-[0.85] text-header flex flex-col justify-center"
             >
                 <div className="overflow-hidden">
                     <motion.div {...textMotionProps}>HE</motion.div>
@@ -52,7 +57,7 @@ const Home = () => {
                         <span style={{ color: mainColor }}>.</span>
                     </motion.div>
                 </div>
-            </motion.div>
+            </div>
         </section>
     );
 };
