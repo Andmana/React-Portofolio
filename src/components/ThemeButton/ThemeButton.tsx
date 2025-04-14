@@ -1,10 +1,12 @@
-import { motion, useCycle } from "motion/react";
+import { motion } from "motion/react";
+import { useTheme } from "../../contexts/ThemeContext";
 
 const ThemeButton = () => {
-    const [indicatorState, setIndicatorState] = useCycle(false, true);
+    const { darkMode, setDarkMode } = useTheme();
 
     const clickHandler = () => {
-        setIndicatorState(); // Toggle between the two states
+        setDarkMode((prev) => !prev);
+        document.querySelector("");
     };
 
     return (
@@ -14,15 +16,15 @@ const ThemeButton = () => {
         >
             <motion.div
                 animate={{
-                    marginLeft: indicatorState ? "calc(100% - 28px)" : 0, // Moves the indicator across the button
-                    marginRight: indicatorState ? 0 : "calc(100% - 28px)", // Adjusts the position of the indicator
+                    marginLeft: darkMode ? "calc(100% - 28px)" : 0, // Moves the indicator across the button
+                    marginRight: darkMode ? 0 : "calc(100% - 28px)", // Adjusts the position of the indicator
                 }}
                 initial={{
                     marginLeft: 0,
                     marginRight: 0,
                 }}
                 transition={{ ease: "easeOut" }} // Optional: Add transition for smoothness
-                className="w-6 h-6 rounded-full bg-white border-2 border-black box-content"
+                className="w-6 h-6 rounded-full border-2 border-black box-content bg-mint-500"
             ></motion.div>
         </button>
     );
