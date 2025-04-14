@@ -41,7 +41,7 @@ const Home = () => {
 
             <motion.div
                 ref={ref}
-                className="self-center absolute h-full text-[150px] leading-[0.85] font-black flex flex-col justify-center"
+                className="self-center absolute h-full leading-[0.85] text-header flex flex-col justify-center"
             >
                 <div className="overflow-hidden">
                     <motion.div {...textMotionProps}>HE</motion.div>

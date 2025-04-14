@@ -2,6 +2,10 @@
 
 @theme {
     --color-mint-500: oklch(0.72 0.11 178);
+    --text-header: clamp(78px, 10vw, 150px);
+    --text-header--font-weight: 900;
+    --text-header--line-height: 0.85;
+    --text-header--letter-spacing: 0.12rem;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
