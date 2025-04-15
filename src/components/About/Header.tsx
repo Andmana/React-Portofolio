@@ -16,7 +16,7 @@ const Header = ({ mainColor }: HeaderProps) => {
     return (
         <div
             ref={ref}
-            className="text-header flex flex-col justify-center transform"
+            className="portrait:w-full flex flex-col portrait:flex-row justify-center text-header portrait:text-3xl"
         >
             <div className="overflow-hidden">
                 <motion.div {...textMotionProps}>AB</motion.div>
