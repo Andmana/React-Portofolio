@@ -12,6 +12,7 @@
     --color-mint-500: oklch(0.72 0.11 178);
     --font-display: "Montserrat", system-ui;
     --icon-filter: brightness(0) saturate(100%) invert(100%) sepia(91%);
+    --whitening: brightness(0) saturate(100%) invert(100%) sepia(91%);
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
