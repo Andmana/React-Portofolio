@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion, useInView } from "motion/react";
 import { COLOR } from "../../utils/Color";
 import Header from "./Header";
 import SlideButton from "./SlideButton";
@@ -7,8 +7,9 @@ import { TAG } from "../../utils/Tags";
 
 const About = () => {
     const [showDetail, setShowDetail] = useState(false);
-    const detailRef = useRef<HTMLDivElement>(null);
     const nameRef = useRef<HTMLDivElement>(null);
+    const detailRef = useRef<HTMLDivElement>(null);
+    const isInView = useInView(nameRef);
     const [offSet, setOffSet] = useState(0);
 
     useEffect(() => {
@@ -55,34 +56,44 @@ const About = () => {
                             {/* Header */}
                             <Header mainColor={COLOR.ABOUT} />
 
-                            {/* Name */}
-                            <motion.article
-                                initial={{ opacity: 1 }}
-                                animate={{ opacity: showDetail ? 0.5 : 1 }}
-                                className="flex-1 font-bold flex flex-col gap-3 justify-start w-full"
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: isInView ? 1 : 0 }}
+                                transition={{
+                                    duration: isInView ? 0.4 : 0,
+                                    delay: isInView ? 0.4 : 0,
+                                }}
+                                className="flex-1 flex gap-4 items-center"
                             >
-                                <h6 className="text-2xl font-bold">
-                                    Hi{" "}
-                                    <span style={{ color: COLOR.ABOUT }}>
-                                        ,
-                                    </span>{" "}
-                                    I AM
-                                </h6>
-                                <p className="text-4xl md:text-5xl portrait:text-2xl lg:text-6xl">
-                                    ANDREAS PERMANA PUTRA S.
-                                </p>
-                                <p className="text-2xl portrait:text-lg">
-                                    Full Stack Developer
-                                </p>
-                            </motion.article>
+                                {/* Name */}
+                                <motion.article
+                                    initial={{ opacity: 1 }}
+                                    animate={{ opacity: showDetail ? 0.5 : 1 }}
+                                    className="flex-1 font-bold flex flex-col gap-3 justify-start w-full"
+                                >
+                                    <h6 className="text-2xl font-bold">
+                                        Hi{" "}
+                                        <span style={{ color: COLOR.ABOUT }}>
+                                            ,
+                                        </span>{" "}
+                                        I AM
+                                    </h6>
+                                    <p className="text-4xl md:text-5xl portrait:text-2xl lg:text-6xl">
+                                        ANDREAS PERMANA PUTRA S.
+                                    </p>
+                                    <p className="text-2xl portrait:text-lg">
+                                        Full Stack Developer
+                                    </p>
+                                </motion.article>
 
-                            {/* Slide Button */}
-                            <SlideButton
-                                handleShowDetail={() =>
-                                    setShowDetail((prev) => !prev)
-                                }
-                                showDetail={showDetail}
-                            />
+                                {/* Slide Button */}
+                                <SlideButton
+                                    handleShowDetail={() =>
+                                        setShowDetail((prev) => !prev)
+                                    }
+                                    showDetail={showDetail}
+                                />
+                            </motion.div>
                         </div>
                     </div>
                     <div
