@@ -32,7 +32,7 @@ const About = () => {
     }, []);
 
     return (
-        <section className="relative landscape:min-h-(--section) portrait:min-h-svh pe-4 md:px-14 flex ">
+        <section className="relative landscape:min-h-(--section) portrait:min-h-svh px-4 md:px-14 flex ">
             {/* Parent element */}
             <div className="relative flex-1 w-full flex items-stretch overflow-x-hidden">
                 {/* Child element, slide */}
