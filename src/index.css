@@ -2,14 +2,16 @@
 
 @font-face {
     font-family: "Montserrat";
-    src: url("./assets/fonts/Montserrat-Black.ttf") format("truetype");
+    src: url("./assets/fonts/Montserrat-SemiBold.ttf") format("truetype");
     font-weight: bolder;
     font-style: normal;
 }
 
 @theme {
+    --section: calc(100vh - 112px);
     --color-mint-500: oklch(0.72 0.11 178);
     --font-display: "Montserrat", system-ui;
+    --icon-filter: brightness(0) saturate(100%) invert(100%) sepia(91%);
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
