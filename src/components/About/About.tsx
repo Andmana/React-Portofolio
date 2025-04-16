@@ -1,4 +1,4 @@
-import { motion, useCycle } from "motion/react";
+import { motion } from "motion/react";
 import { COLOR } from "../../utils/Color";
 import Header from "./Header";
 import SlideButton from "./SlideButton";
@@ -6,14 +6,20 @@ import { useEffect, useRef, useState } from "react";
 import { TAG } from "../../utils/Tags";
 
 const About = () => {
-    const [showDetail, setShowDetail] = useCycle(false, true);
-    const ref = useRef<HTMLDivElement>(null);
+    const [showDetail, setShowDetail] = useState(false);
+    const detailRef = useRef<HTMLDivElement>(null);
+    const nameRef = useRef<HTMLDivElement>(null);
     const [offSet, setOffSet] = useState(0);
 
     useEffect(() => {
         const handleResize = () => {
-            if (ref.current) {
-                setOffSet(ref.current.offsetWidth);
+            if (detailRef.current && nameRef.current) {
+                setOffSet(detailRef.current.offsetWidth);
+                if (
+                    detailRef.current.offsetWidth ===
+                    nameRef.current.offsetWidth
+                )
+                    setShowDetail(false);
             }
         };
 
@@ -25,7 +31,7 @@ const About = () => {
     }, []);
 
     return (
-        <section className="relative landscape:min-h-(--section) portrait:min-h-svh px-4 md:px-14 flex ">
+        <section className="relative landscape:min-h-(--section) portrait:min-h-svh pe-4 md:px-14 flex ">
             {/* Parent element */}
             <div className="relative flex-1 w-full flex items-stretch overflow-x-hidden">
                 {/* Child element, slide */}
@@ -37,7 +43,10 @@ const About = () => {
                     transition={{ duration: 0.4, ease: "easeOut" }}
                     className="relative min-h-full h-fit w-full flex flex-14 portrait:flex-col gap-14 portrait:gap-4"
                 >
-                    <div className="relative min-h-full w-full shrink-0 flex items-center px-4">
+                    <div
+                        ref={nameRef}
+                        className="relative min-h-full w-full shrink-0 flex items-center ps-4"
+                    >
                         <div
                             className="absolute w-3/11 h-full portrait:hidden"
                             style={{ backgroundColor: COLOR.ABOUT }}
@@ -69,17 +78,19 @@ const About = () => {
 
                             {/* Slide Button */}
                             <SlideButton
-                                handleShowDetail={setShowDetail}
+                                handleShowDetail={() =>
+                                    setShowDetail((prev) => !prev)
+                                }
                                 showDetail={showDetail}
                             />
                         </div>
                     </div>
                     <div
-                        ref={ref}
+                        ref={detailRef}
                         className="min-h-full w-4/5 lg:w-3/5 portrait:w-full shrink-0 py-4"
                     >
                         <article
-                            className="min-h-full h-fit w-full py-4 md:py-14 border-y-2 flex flex-col gap-3 px-4"
+                            className="min-h-full h-fit w-full border-y-2 flex flex-col gap-3 px-4 py-8 md:py-14"
                             style={{ borderColor: COLOR.ABOUT }}
                         >
                             <h1 className="text-xl font-bold">

@@ -7,7 +7,7 @@ interface SlideButtonProps {
 
 const SlideButton = ({ showDetail, handleShowDetail }: SlideButtonProps) => {
     return (
-        <div className=" w-15 h-full flex flex-col justify-center items-center cursor-pointer transform -translate-x-3/4 portrait:hidden">
+        <div className=" w-15 h-full flex flex-col justify-center items-center cursor-pointer transform -translate-x-2/4 portrait:hidden">
             <button
                 className="text-xl font-bold rotate-90 animate-bounce"
                 onClick={handleShowDetail}
