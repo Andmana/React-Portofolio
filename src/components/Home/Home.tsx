@@ -15,10 +15,7 @@ const Home = () => {
 
     return (
         <section
-            style={{
-                minHeight: "calc(100vh - 112px)",
-            }}
-            className="relative flex justify-center items-stretch px-4 md:px-14 isolate"
+            className="relative landscape:min-h-(--section) portrait:min-h-svh flex justify-center items-stretch px-4 md:px-14 isolate"
             id="Home"
         >
             {/* Left Side with Background and Scroll Text */}

@@ -8,6 +8,7 @@
     --text-header--letter-spacing: 0.12rem;
     --icon-filter: brightness(0) saturate(100%) invert(100%) sepia(91%)
         saturate(38%) hue-rotate(321deg) brightness(110%) contrast(110%);
+    --section: calc(100vh - 112px);
 }
 
 @custom-variant dark (&:where(.dark, .dark *));

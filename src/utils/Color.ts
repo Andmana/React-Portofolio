@@ -1,5 +1,5 @@
 export const COLOR = {
     HOME: "#ffff",
-    ABOUT: "#171717",
+    ABOUT: "#FACC15",
     PROJECT: "#242424",
 };
