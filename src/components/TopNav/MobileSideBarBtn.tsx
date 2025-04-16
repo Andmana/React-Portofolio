@@ -1,6 +1,6 @@
 import iconBurger from "../../assets/icons/icon-burger.svg";
 
-const MobileIsdeBarButton = () => {
+const MobileSideBarButton = () => {
     return (
         <button
             className="w-7 h-7 dark:filter-(--icon-filter) cursor-pointer"
@@ -11,4 +11,4 @@ const MobileIsdeBarButton = () => {
     );
 };
 
-export default MobileIsdeBarButton;
+export default MobileSideBarButton;

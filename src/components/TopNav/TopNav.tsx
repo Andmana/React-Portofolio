@@ -1,5 +1,5 @@
 import ThemeButton from "../ThemeButton";
-import MobileIsdeBarButton from "./MobileSideBarBtn";
+import MobileSideBarButton from "./MobileSideBarBtn";
 
 const TopNav = () => {
     return (
@@ -12,7 +12,7 @@ const TopNav = () => {
                 <ThemeButton />
             </div>
             <div className="flex-1 flex items-center justify-end landscape:hidden">
-                <MobileIsdeBarButton />
+                <MobileSideBarButton />
             </div>
         </nav>
     );
