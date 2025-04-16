@@ -6,7 +6,7 @@ function App() {
     return (
         <>
             <ThemeProvider>
-                <div className="bg-white dark:bg-black min-h-screen text-black dark:text-white">
+                <div className="font-display bg-white dark:bg-black min-h-screen text-black dark:text-white">
                     <TopNav />
                     <Footer />
                 </div>

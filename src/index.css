@@ -1,7 +1,15 @@
 @import "tailwindcss";
 
+@font-face {
+    font-family: "Montserrat";
+    src: url("./assets/fonts/Montserrat-Black.ttf") format("truetype");
+    font-weight: bolder;
+    font-style: normal;
+}
+
 @theme {
     --color-mint-500: oklch(0.72 0.11 178);
+    --font-display: "Montserrat", system-ui;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
