@@ -1,4 +1,4 @@
-import MediaQuery from "react-responsive";
+import MobileIsdeBarButton from "../SideBarButton/SideBarButton";
 import ThemeButton from "../ThemeButton";
 
 const TopNav = () => {
@@ -8,11 +8,12 @@ const TopNav = () => {
                 ANDMANA
             </a>
 
-            <MediaQuery minWidth={768}>
-                <div className="flex-1 flex items-center justify-end">
-                    <ThemeButton />
-                </div>
-            </MediaQuery>
+            <div className="flex-1 flex items-center justify-end portrait:hidden">
+                <ThemeButton />
+            </div>
+            <div className="flex-1 flex items-center justify-end landscape:hidden">
+                <MobileIsdeBarButton />
+            </div>
         </nav>
     );
 };
