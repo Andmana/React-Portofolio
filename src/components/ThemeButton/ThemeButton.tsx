@@ -6,7 +6,6 @@ const ThemeButton = () => {
 
     const clickHandler = () => {
         setDarkMode((prev) => !prev);
-        document.querySelector("");
     };
 
     return (
