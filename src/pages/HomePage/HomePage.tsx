@@ -9,7 +9,7 @@ const HomePage = () => {
     return (
         <ThemeProvider>
             <HomePageProvider>
-                <div className="font-display text-black dark:text-white bg-white dark:bg-[#242424] overflow-x-hidden">
+                <div className="font-display text-black dark:text-[#F1F5F9] bg-white dark:bg-[#242424] overflow-x-hidden">
                     <TopNav />
                     <SideMenu />
 
