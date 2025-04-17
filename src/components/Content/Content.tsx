@@ -3,6 +3,7 @@ import Home from "../Home";
 import SideMenuButton from "./SideMenuButton";
 import { useHomePage } from "../../contexts/HomePageContext";
 import { useTheme } from "../../contexts/ThemeContext";
+import About from "../About";
 
 const Content = () => {
     const { showMenu, sideWidth } = useHomePage();
@@ -25,7 +26,7 @@ const Content = () => {
                 className="flex flex-col gap-14 "
             >
                 <Home />
-                <section className="h-screen"></section>
+                <About />
                 <section className="h-screen"></section>
             </motion.div>
         </motion.main>
