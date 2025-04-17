@@ -1,10 +1,15 @@
 import { motion } from "motion/react";
 import { useState } from "react";
 import SocialMedia from "./SocialMedia";
+import ThemeButton from "../ThemeButton";
 
 const Menu = () => {
     return (
         <>
+            <div className="not-portrait:hidden">
+                <ThemeButton />
+            </div>
+
             <h1 className="text-4xl lg:text-6xl font-black">
                 <span>M</span>ENU
             </h1>
@@ -16,7 +21,7 @@ const Menu = () => {
                 <SectionAnchor label="PROJECTS" />
             </div>
 
-            <div className="flex flex-col gap-4 text-xl portrait:items-end font-semibold">
+            <div className="flex flex-col gap-4 text-xl portrait:text-base portrait:items-end font-semibold">
                 <h2 className="text-2xl lg:text-3xl font-bold">
                     <span>C</span>ONTACT
                 </h2>

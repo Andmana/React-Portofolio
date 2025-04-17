@@ -10,7 +10,7 @@ const SideMenu = () => {
                 <HideMenuButton />
             </div>
             {/* Menus */}
-            <div className="flex flex-col justify-center portrait:items-end gap-14">
+            <div className="flex flex-col justify-center portrait:items-end gap-14 portrait:gap-10">
                 <Menu />
             </div>
         </aside>
