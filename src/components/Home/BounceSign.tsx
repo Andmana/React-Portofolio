@@ -15,7 +15,7 @@ const BounceSign = ({ isInView }: { isInView: boolean }) => {
                 <span className="font-semibold text-xl -rotate-90">Scroll</span>
                 <img
                     src={iconArrow}
-                    className="w-5 h-5 dark:filter-(--icon-filter)"
+                    className="w-5 h-5 dark:filter-(--whitening)"
                 />
             </motion.div>
         </div>

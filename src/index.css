@@ -2,7 +2,8 @@
 
 @font-face {
     font-family: "Montserrat";
-    src: url("./assets/fonts/Montserrat-SemiBold.ttf") format("truetype");
+    src: url("./assets/fonts/Montserrat-VariableFont_wght.ttf")
+        format("truetype");
     font-weight: bolder;
     font-style: normal;
 }
@@ -10,9 +11,11 @@
 @theme {
     --section: calc(100vh - 112px);
     --color-mint-500: oklch(0.72 0.11 178);
-    --font-display: "Montserrat", system-ui;
-    --icon-filter: brightness(0) saturate(100%) invert(100%) sepia(91%);
-    --whitening: brightness(0) saturate(100%) invert(100%) sepia(91%);
+    --font-display: "Montserrat", sans-serif, system-ui;
+    --whitening: filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7491%) hue-rotate(52deg) brightness(105%) contrast(101%);;
+    --text-header: clamp(78px, 10vw, 160px);
+    --text-header--font-weight: 800;
+    --text-header--line-height: 0.8;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
