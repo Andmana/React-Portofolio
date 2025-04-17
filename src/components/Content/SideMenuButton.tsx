@@ -6,14 +6,16 @@ const SideMenuButton = () => {
     const { showMenu, setShowMenu } = useHomePage();
     return (
         <motion.div
-            initial={{ x: "0px" }}
-            animate={{ x: showMenu ? "-200%" : "0%" }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
             className="fixed z-20 top-1/2 left-0 ps-14 transform -translate-y-1/2"
+            initial={{ x: "0%", opacity: 1 }}
+            animate={{
+                x: showMenu ? "-200%" : "0%",
+            }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
         >
             <button
                 onClick={() => setShowMenu(true)}
-                className="text-xl font-semibold flex flex-col items-center gap-4 rotate-90 animate-bounce "
+                className="text-xl font-semibold flex flex-col items-center gap-4 transform rotate-90 animate-bounce "
             >
                 <span className="transform rotate-180">MENU</span>
                 <img

@@ -7,16 +7,21 @@ const Content = () => {
     const { showMenu, sideWidth } = useHomePage();
 
     return (
-        <motion.main
-            initial={{ x: 0 }}
-            animate={{ x: showMenu ? sideWidth : 0 }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
-            className="relative w-full py-14 flex flex-col gap-14 overflow-x-hidden"
-        >
+        <motion.main className="relative w-full py-14 ">
             <SideMenuButton />
-            <Home />
-            <section className="h-screen"></section>
-            <section className="h-screen"></section>
+            <motion.div
+                initial={{ x: 0 }}
+                animate={{
+                    x: showMenu ? sideWidth : 0,
+                    filter: showMenu ? "brightness(0.6)" : "brightness(1)",
+                }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                className="flex flex-col gap-14 "
+            >
+                <Home />
+                <section className="h-screen"></section>
+                <section className="h-screen"></section>
+            </motion.div>
         </motion.main>
     );
 };
