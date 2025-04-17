@@ -1,5 +1,5 @@
-export const COLOR = {
+export const COLOR: { [key: string]: string } = {
     HOME: "#F87171",
     ABOUT: "#FACC15",
-    PROJECT: "#242424",
+    PROJECTS: "#0EA5E9",
 };
