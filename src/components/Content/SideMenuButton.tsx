@@ -6,7 +6,7 @@ const SideMenuButton = () => {
     const { showMenu, setShowMenu } = useHomePage();
     return (
         <motion.div
-            className="fixed z-20 top-1/2 left-0 ps-14 transform -translate-y-1/2"
+            className="fixed z-20 top-1/2 left-0 ps-14 transform -translate-y-1/2 portrait:hidden"
             initial={{ x: "0%", opacity: 1 }}
             animate={{
                 x: showMenu ? "-200%" : "0%",
