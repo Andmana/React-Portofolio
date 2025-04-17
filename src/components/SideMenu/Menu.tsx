@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { useState } from "react";
 import SocialMedia from "./SocialMedia";
 import ThemeButton from "../ThemeButton";
+import { COLOR } from "../../constants/Color";
 
 const Menu = () => {
     return (
@@ -50,7 +51,8 @@ const SectionAnchor = ({ label }: { label: string }) => {
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: isHover ? 1 : 0 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
-                className="absolute h-1/3 w-[120%] -left-1/10 top-1/2 transform -translate-y-2/5 bg-cyan-300 origin-left"
+                style={{ backgroundColor: COLOR[label] }}
+                className="absolute h-1/3 w-[120%] -left-1/10 top-1/2 transform -translate-y-2/5  origin-left"
             ></motion.span>
         </motion.a>
     );
