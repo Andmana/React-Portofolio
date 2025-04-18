@@ -8,7 +8,7 @@ const Home = () => {
     const { ref, isInView } = useHome();
 
     return (
-        <section className="relative px-4 md:px-16 min-h-(--section) w-full portrait:min-h-svh flex">
+        <section className="relative px-6 md:px-16 min-h-(--section) w-full portrait:min-h-svh flex">
             <div className="relative flex-1 flex justify-center items-center">
                 <div
                     style={{ backgroundColor: COLOR.HOME }}

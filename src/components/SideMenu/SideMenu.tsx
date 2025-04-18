@@ -37,7 +37,8 @@ const SideMenu = () => {
 
     return (
         <motion.aside
-            initial={{ x: "0px" }}
+            style={{ translateX: isDesktop ? "-100%" : "0%" }}
+            initial={{ x: isDesktop ? "-100%" : "0%" }}
             animate={{
                 x: showMenu
                     ? isDesktop

@@ -3,7 +3,7 @@ import MobileSideBarButton from "./MobileSideBarBtn";
 
 const TopNav = () => {
     return (
-        <nav className="fixed z-50 top-0 left-0 w-full h-14 bg-inherit px-4 md:px-14 flex items-center">
+        <nav className="fixed z-50 top-0 left-0 w-full h-14 bg-inherit px-6 md:px-14 flex items-center">
             <a href="/" className="text-xl font-black ">
                 ANDMANA
             </a>
