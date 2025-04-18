@@ -1,4 +1,3 @@
-import { col } from "motion/react-client";
 import { useTheme } from "../../contexts/ThemeContext";
 
 const ColoredText = ({

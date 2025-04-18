@@ -8,7 +8,6 @@ const SideMenu = () => {
 
     return (
         <motion.aside
-            initial={{ x: isDesktop ? "-100%" : "0%" }}
             animate={
                 showMenu
                     ? { x: isDesktop ? 0 : sideWidth }
