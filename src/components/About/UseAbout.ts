@@ -23,16 +23,23 @@ const useAbout = () => {
                 }
             }
         };
-        if (contentRef.current)
+        if (contentRef.current) {
             contentRef.current.addEventListener("scroll", handleScroll);
-
+            window.addEventListener("resize", handleScroll);
+        }
         handleScroll();
 
         return () => {
-            if (contentRef.current)
+            if (contentRef.current) {
                 contentRef.current.removeEventListener("scroll", handleScroll);
+                window.removeEventListener("resize", handleScroll);
+            }
         };
     }, []);
+
+    useEffect(() => {
+        console.log("isSlide :", isSlide);
+    }, [isSlide]);
 
     return {
         headerRef,

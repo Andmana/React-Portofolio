@@ -32,7 +32,7 @@ const About = () => {
             <div
                 ref={contentRef}
                 style={{ scrollbarWidth: "none" }}
-                className="relative w-full h-full overflow-scroll flex flex-col gap-8 justify-center  overflow-x-scroll overflow-y-scroll"
+                className="relative w-full h-full overflow-scroll flex flex-col gap-8 justify-center  overflow-x-scroll "
             >
                 <article className="min-w-full h-full flex portrait:flex-col gap-4 md:gap-14">
                     <div
@@ -50,7 +50,7 @@ const About = () => {
                         <Name />
                     </div>
                 </article>
-                <article className="absolute portrait:static left-[min(130%,calc(100%+150px))] w-7/10 portrait:w-full h-full flex items-center">
+                <article className="absolute portrait:static left-[min(130%,calc(100%+150px))] w-7/10 portrait:w-full h-fit flex items-center ">
                     <Detail />
                 </article>
 
