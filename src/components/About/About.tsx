@@ -4,7 +4,6 @@ import Name from "./Name";
 import SlideButton from "./SlideButton";
 import Detail from "./Details";
 import { motion } from "motion/react";
-import { delay } from "motion";
 const About = () => {
     const {
         headerRef,
@@ -56,18 +55,9 @@ const About = () => {
                         <Header ref={headerRef} isInView={isInView} />
                     </div>
 
-                    <motion.div
-                        animate={{ opacity: isInView ? 1 : 0 }}
-                        transition={{
-                            opacity: {
-                                duration: isInView ? 0.4 : 0,
-                                delay: isInView ? 0.3 : 0,
-                            },
-                        }}
-                        className="w-7/10 portrait:w-full h-full font-semibold flex justify-center items-center portrait:justify-start bg-[#FACC15] dark:bg-inherit"
-                    >
-                        <Name />
-                    </motion.div>
+                    <div className="w-7/10 portrait:w-full h-full font-semibold flex justify-center items-center portrait:justify-start bg-[#FACC15] dark:bg-inherit">
+                        <Name isInView={isInView} />
+                    </div>
                 </motion.article>
                 <motion.article
                     animate={
