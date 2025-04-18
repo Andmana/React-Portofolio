@@ -10,15 +10,16 @@ const Header = ({
     isInView: boolean;
     ref: RefObject<HTMLDivElement | null>;
 }) => {
+    console.log("COLOR.ABOUT", COLOR.ABOUT);
     return (
         <div
             ref={ref}
-            className="absolute  right-0 portrait:static text-header portrait:text-xl flex flex-col portrait:flex-row transform translate-x-1/6"
+            className="absolute left-full portrait:static text-header portrait:text-xl flex flex-col portrait:flex-row transform landscape:-translate-x-1/2"
         >
             <AnimatedHeader isInView={isInView}>AB</AnimatedHeader>
             <AnimatedHeader isInView={isInView}>
                 OUT
-                <ColoredText color={COLOR.ABOUT} label="." />
+                <ColoredText color={COLOR.ABOUT} label="." flexible={true} />
             </AnimatedHeader>
         </div>
     );

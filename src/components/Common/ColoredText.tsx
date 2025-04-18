@@ -1,5 +1,23 @@
-const ColoredText = ({ label, color }: { label: string; color: string }) => {
-    return <span style={{ color: color }}>{label}</span>;
+import { col } from "motion/react-client";
+import { useTheme } from "../../contexts/ThemeContext";
+
+const ColoredText = ({
+    label,
+    color,
+    flexible = false,
+}: {
+    label: string;
+    color: string;
+    flexible?: boolean;
+}) => {
+    const { darkMode } = useTheme();
+    return (
+        <span
+            style={flexible ? { color: darkMode ? color : "white" } : { color }}
+        >
+            {label}
+        </span>
+    );
 };
 
 export default ColoredText;

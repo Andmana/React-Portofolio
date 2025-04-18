@@ -1,5 +1,6 @@
 import { useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
+import { useTheme } from "../../contexts/ThemeContext";
 
 const useAbout = () => {
     const headerRef = useRef<HTMLDivElement>(null);
@@ -7,6 +8,8 @@ const useAbout = () => {
     const slideButtonRef = useRef<HTMLButtonElement>(null);
     const [isSlide, setIsSlide] = useState(false);
     const isInView = useInView(headerRef);
+    const { darkMode } = useTheme();
+    const [isDeskTop, setIsDesktop] = useState(true);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -20,6 +23,16 @@ const useAbout = () => {
                     setIsSlide(true);
                 } else {
                     setIsSlide(false);
+                }
+
+                if (
+                    window.getComputedStyle(slideButtonRef.current).display ===
+                    "none"
+                ) {
+                    setIsSlide(false);
+                    setIsDesktop(false);
+                } else {
+                    setIsDesktop(true);
                 }
             }
         };
@@ -37,10 +50,6 @@ const useAbout = () => {
         };
     }, []);
 
-    useEffect(() => {
-        console.log("isSlide :", isSlide);
-    }, [isSlide]);
-
     return {
         headerRef,
         isInView,
@@ -48,6 +57,8 @@ const useAbout = () => {
         slideButtonRef,
         isSlide,
         setIsSlide,
+        darkMode,
+        isDeskTop,
     };
 };
 

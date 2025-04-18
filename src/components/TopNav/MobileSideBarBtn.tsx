@@ -7,7 +7,7 @@ const MobileSideBarButton = () => {
     const { setShowMenu, showMenu } = useHomePage();
     return (
         <motion.button
-            whileHover={{ scale: 1.1 }}
+            whileHover={showMenu ? { rotate: 180 } : { scale: 1.1 }}
             onClick={() => setShowMenu((prev) => !prev)}
             className="w-7 h-7 dark:filter-(--whitening) cursor-pointer"
             aria-label="Sidebar"

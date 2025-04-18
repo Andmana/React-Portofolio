@@ -1,12 +1,14 @@
 import { COLOR } from "../../constants/Color";
+import ColoredText from "../Common/ColoredText";
 
 const Name = () => {
     return (
-        <div className="flex w-5/6 flex-col gap-4">
+        <div className="flex flex-col gap-4 w-fit">
             <h6 className="text-2xl font-bold w-fit">
-                Hi <span style={{ color: COLOR.ABOUT }}>,</span> I AM
+                Hi <ColoredText label="," color={COLOR.ABOUT} flexible={true} />{" "}
+                I AM
             </h6>
-            <p className="text-3xl md:text-4xl portrait:text-2xl lg:text-5xl font-black">
+            <p className="text-3xl w-fit md:text-4xl portrait:text-2xl lg:text-5xl font-black">
                 ANDREAS P. PUTRA S.
             </p>
             <p className="text-xl portrait:text-lg">Full Stack Developer</p>
