@@ -26,9 +26,10 @@ const Menu = () => {
                 <h2 className="text-2xl lg:text-3xl font-bold">
                     <span>C</span>ONTACT
                 </h2>
-                <p className="">
-                    ANDREAS P. PUTRA S. <br></br> andre.pputras@gmail.com
-                </p>
+                <div className="text-left portrait:text-right portrait:text-sm">
+                    <p className="">ANDREAS P. PUTRA S.</p>
+                    <p>andre.pputras@gmail.com</p>
+                </div>
                 <SocialMedia />
             </div>
         </>
