@@ -19,18 +19,18 @@ const SideMenuButton = () => {
                 onClick={() => setShowMenu(true)}
                 onHoverStart={() => setIsHover(true)}
                 onHoverEnd={() => setIsHover(false)}
-                className="text-xl font-semibold flex flex-col items-center gap-4 transform rotate-90 animate-bounce "
+                className="text-lg font-semibold flex flex-col items-center gap-4 transform rotate-90 p-1  animate-bounce "
             >
                 <span className="transform rotate-180">MENU</span>
                 <img
                     src={iconBurger}
                     alt=""
-                    className="rotate-90 w-12 h-12 dark:filter-(--whitening)"
+                    className="rotate-90 w-10 h-10 dark:filter-(--whitening)"
                 />
                 <motion.span
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: isHover ? 1 : 0 }}
-                    className="absolute top-0 h-0.5 w-full bg-black dark:bg-white origin-right"
+                    className="absolute top-1 h-0.5 w-full bg-black dark:bg-white origin-right"
                     transition={{ duration: 0.3 }}
                 />
             </motion.button>

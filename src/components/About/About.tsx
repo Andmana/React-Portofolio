@@ -1,84 +1,80 @@
+import { COLOR } from "../../constants/Color";
 import Header from "./Header";
-import useAbout from "./UseAbout";
 import Name from "./Name";
 import SlideButton from "./SlideButton";
-import Detail from "./Details";
-import { motion } from "motion/react";
+import useAbout from "./UseAbout";
+
 const About = () => {
     const {
-        headerRef,
-        isInView,
-        contentRef,
-        slideButtonRef,
-        isSlide,
+        isPortrait,
+        sectionRef,
+        isSectionInView,
         darkMode,
-        isDeskTop,
+        headerRef,
+        offSet,
     } = useAbout();
-
-    const buttonHandle = () => {
-        if (contentRef.current) {
-            if (isSlide) {
-                // Scroll to the left (start) smoothly
-                contentRef.current.scrollTo({
-                    left: 0,
-                    behavior: "smooth",
-                });
-            } else {
-                // Scroll to the right (end) smoothly
-                contentRef.current.scrollTo({
-                    left: contentRef.current.scrollWidth,
-                    behavior: "smooth",
-                });
-            }
-        }
-    };
-
     return (
-        // Border
-        <section className="relative w-full h-(--section) portrait:h-fit p-6 md:px-14 isolate">
+        <section
+            ref={sectionRef}
+            className="relative w-full h-(--section) portrait:h-fit px-6 md:px-14 isolate"
+        >
+            {/* Scroll landscape screen */}
             <div
-                ref={contentRef}
+                className={
+                    isPortrait
+                        ? "relative w-full h-fit flex flex-col gap-8"
+                        : "relative w-full h-full overflow-x-scroll flex"
+                }
                 style={{ scrollbarWidth: "none" }}
-                className="relative w-full h-full overflow-scroll flex flex-col gap-8 justify-center  overflow-x-scroll "
             >
-                <motion.article
-                    animate={{
-                        filter: isSlide
-                            ? darkMode
-                                ? "brightness(0.8)"
-                                : "brightness(1.4)"
-                            : "brightness(1)",
-                    }}
-                    className="min-w-full h-full flex portrait:flex-col gap-16 portrait:gap-4 "
-                >
-                    <div className="relative w-3/10 h-full flex items-center  landscape:dark:bg-[#FACC15]">
-                        <Header ref={headerRef} isInView={isInView} />
-                    </div>
-
-                    <div className="w-7/10 portrait:w-full h-full font-semibold flex justify-center items-center portrait:justify-start bg-[#FACC15] dark:bg-inherit">
-                        <Name isInView={isInView} />
-                    </div>
-                </motion.article>
-                <motion.article
-                    animate={
-                        !isDeskTop
-                            ? { opacity: 1 }
-                            : { opacity: isSlide ? 1 : 0.1 }
+                {/* Content */}
+                <article
+                    style={
+                        isPortrait
+                            ? {}
+                            : {
+                                  backgroundImage: `linear-gradient( ${COLOR.ABOUT}, ${COLOR.ABOUT})`,
+                                  // backgroundColor: COLOR.ABOUT,
+                                  backgroundSize: darkMode
+                                      ? "29% 100%"
+                                      : "71% 100%",
+                                  backgroundRepeat: "no-repeat",
+                                  backgroundPosition: darkMode
+                                      ? 0
+                                      : "right 30%",
+                              }
                     }
-                    className="absolute portrait:static left-[min(130%,calc(100%+150px))] w-7/10 portrait:w-full h-fit flex items-center "
+                    className="relative w-full h-full flex portrait:flex-col"
                 >
-                    <Detail />
-                </motion.article>
+                    <div
+                        className="absolute portrait:static flex portrait:flex-col items-center portrait:items-start gap-4 h-full "
+                        style={{
+                            left: `calc(29% - ${offSet}px)`,
+                            width: isPortrait
+                                ? "100%"
+                                : `calc(100% - ${offSet}px - 90px)`,
+                        }}
+                    >
+                        {/* SECTIOON TITLE */}
+                        <div
+                            className="text-header portrait:text-xl portrait:flex"
+                            ref={headerRef}
+                        >
+                            <Header isSectionInView={isSectionInView} />
+                        </div>
+                        {/* NAME */}
+                        <div className="flex-1 flex justify-center">
+                            <Name isSectionInView={isSectionInView} />
+                        </div>
+                    </div>
+                </article>
+                <article className="absolute top-0 left-full portrait:static h-full w-7/10 portrait:w-full bg-black "></article>
 
-                <SlideButton
-                    isSlide={isSlide}
-                    isInView={isInView}
-                    buttonHandle={buttonHandle}
-                    slideButtonRef={slideButtonRef}
-                />
+                {/* SLide button for landscape screen */}
+                {!isPortrait && (
+                    <SlideButton isSectionInView={isSectionInView} />
+                )}
             </div>
-
-            <div className=""></div>
         </section>
     );
 };

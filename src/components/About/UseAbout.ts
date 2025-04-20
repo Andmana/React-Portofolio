@@ -1,64 +1,38 @@
 import { useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
+import { useMediaQuery } from "react-responsive";
 import { useTheme } from "../../contexts/ThemeContext";
 
 const useAbout = () => {
+    const isPortrait = useMediaQuery({ orientation: "portrait" });
+    const sectionRef = useRef<HTMLDivElement>(null);
     const headerRef = useRef<HTMLDivElement>(null);
-    const contentRef = useRef<HTMLDivElement>(null);
-    const slideButtonRef = useRef<HTMLButtonElement>(null);
-    const [isSlide, setIsSlide] = useState(false);
-    const isInView = useInView(headerRef);
+    const [offSet, setOffSet] = useState(0);
+    const isSectionInView = useInView(sectionRef);
     const { darkMode } = useTheme();
-    const [isDeskTop, setIsDesktop] = useState(true);
 
     useEffect(() => {
-        const handleScroll = () => {
-            if (contentRef.current && slideButtonRef.current) {
-                //  Check position
-                const rect = slideButtonRef.current.getBoundingClientRect();
-                const elementCenter = rect.left + rect.width / 2;
-                const viewportCenter = window.innerWidth / 2;
-
-                if (elementCenter < viewportCenter) {
-                    setIsSlide(true);
-                } else {
-                    setIsSlide(false);
-                }
-
-                if (
-                    window.getComputedStyle(slideButtonRef.current).display ===
-                    "none"
-                ) {
-                    setIsSlide(false);
-                    setIsDesktop(false);
-                } else {
-                    setIsDesktop(true);
-                }
+        const handleResize = () => {
+            if (headerRef.current) {
+                setOffSet(headerRef.current.offsetWidth / 2);
             }
         };
-        if (contentRef.current) {
-            contentRef.current.addEventListener("scroll", handleScroll);
-            window.addEventListener("resize", handleScroll);
-        }
-        handleScroll();
+
+        window.addEventListener("resize", handleResize);
+        handleResize();
 
         return () => {
-            if (contentRef.current) {
-                contentRef.current.removeEventListener("scroll", handleScroll);
-                window.removeEventListener("resize", handleScroll);
-            }
+            window.removeEventListener("resize", handleResize);
         };
     }, []);
 
     return {
+        sectionRef,
+        isSectionInView,
         headerRef,
-        isInView,
-        contentRef,
-        slideButtonRef,
-        isSlide,
-        setIsSlide,
+        isPortrait,
         darkMode,
-        isDeskTop,
+        offSet,
     };
 };
 

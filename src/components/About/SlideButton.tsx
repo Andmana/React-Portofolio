@@ -1,65 +1,36 @@
 import { motion } from "motion/react";
 import iconArrow from "../../assets/icons/icon-arrow-down-2.svg";
-import { RefObject, useState } from "react";
 
 interface SlideButtonProps {
-    buttonHandle: () => void;
-    isSlide: boolean;
-    isInView: boolean;
-    slideButtonRef: RefObject<HTMLButtonElement | null>;
+    isSectionInView: boolean;
 }
-
-const SlideButton = ({
-    buttonHandle,
-    isSlide,
-    isInView,
-    slideButtonRef,
-}: SlideButtonProps) => {
-    const [isHover, setIsHover] = useState(false);
+const SlideButton = ({ isSectionInView }: SlideButtonProps) => {
     return (
-        <motion.button
-            onClick={buttonHandle}
-            ref={slideButtonRef}
-            className="absolute left-full cursor-pointer portrait:hidden"
-            initial={{ x: "-200%", rotate: "-90deg" }}
-            style={{
-                rotate: isSlide ? "90deg" : "-90deg",
-            }}
-            animate={{
-                x: isSlide ? "100px" : "-105%",
-                rotate: isSlide ? "90deg" : "-90deg",
-                opacity: isInView ? 1 : isSlide ? 1 : 0,
-            }}
+        <motion.div
+            animate={{ opacity: isSectionInView ? 1 : 0 }}
             transition={{
                 opacity: {
-                    duration: isInView ? 0.4 : 0,
-                    delay: isInView ? 0.5 : 0,
+                    duration: isSectionInView ? 0.4 : 0,
+                    delay: isSectionInView ? 0.5 : 0,
                 },
             }}
+            className="absolute top-1/2 right-0 transform -translate-y-1/2 "
         >
-            <motion.div
-                className="flex flex-col items-center gap-6 animate-bounce"
-                onHoverStart={() => setIsHover(true)}
-                onHoverEnd={() => setIsHover(false)}
-            >
-                <span className="text-lg font-bold rotate-180">
-                    {isSlide ? "HIDE" : "MORE"}
-                </span>
+            <button className="p-1 aspect-square flex flex-col gap-4 items-center transform -rotate-90 animate-bounce">
                 <motion.span
-                    className="w-full h-0.5 absolute top-0 left-0 bg-black dark:bg-white origin-right"
+                    className="w-full h-0.5 absolute top-1 left-0 bg-black dark:bg-white origin-right "
                     initial={{ scaleX: 0 }}
-                    animate={{ scaleX: isHover ? 1 : 0 }}
+                    animate={{ scaleX: 1 }}
                     transition={{ duration: 0.3 }}
                 />
+                <span className="text-lg font-semibold rotate-180">MORE</span>
                 <img
                     src={iconArrow}
                     alt=""
                     className="w-10 dark:filter-(--whitening)"
                 />
-            </motion.div>
-        </motion.button>
+            </button>
+        </motion.div>
     );
 };
-
-motion;
 export default SlideButton;
