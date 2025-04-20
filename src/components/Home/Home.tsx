@@ -10,7 +10,7 @@ const Home = () => {
     return (
         <section
             ref={ref}
-            className="relative px-6 md:px-16 min-h-(--section) w-full portrait:min-h-svh flex"
+            className="relative px-6 md:px-16 min-h-(--section) w-full portrait:min-h-(--section-mobile) flex"
         >
             <div className="relative flex-1 flex justify-center items-center">
                 <div

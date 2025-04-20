@@ -10,6 +10,7 @@
 
 @theme {
     --section: calc(100vh - 112px);
+    --section-mobile: calc(100svh - 112px);
     --color-mint-500: oklch(0.72 0.11 178);
     --font-display: "Montserrat", sans-serif, system-ui;
     --whitening: brightness(0) saturate(100%) invert(100%) sepia(0%)
