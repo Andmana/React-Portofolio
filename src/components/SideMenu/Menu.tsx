@@ -22,7 +22,7 @@ const Menu = () => {
                 <SectionAnchor label="PROJECTS" />
             </div>
 
-            <div className="flex flex-col gap-4 text-xl portrait:text-base portrait:items-end font-semibold">
+            <div className="flex flex-col gap-4 text-lg portrait:text-base portrait:items-end font-light">
                 <h2 className="text-2xl lg:text-3xl font-bold">
                     <span>C</span>ONTACT
                 </h2>
