@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { useHomePage } from "../../contexts/HomePageContext";
+import { useMediaQuery } from "react-responsive";
 
 const useSideMenu = () => {
     const ref = useRef<HTMLDivElement>(null);
-    const [isDesktop, setIsDesktop] = useState(false);
+    const isPortrait = useMediaQuery({ orientation: "portrait" });
     const { showMenu, setSideWidth, sideWidth } = useHomePage();
 
     useEffect(() => {
@@ -16,10 +17,8 @@ const useSideMenu = () => {
 
                 if (elementCenter < viewportCenter) {
                     setSideWidth(ref.current.offsetWidth);
-                    setIsDesktop(true);
                 } else {
                     setSideWidth(-ref.current.offsetWidth);
-                    setIsDesktop(false);
                 }
             }
         };
@@ -32,7 +31,7 @@ const useSideMenu = () => {
         };
     }, []);
 
-    return { ref, isDesktop, setIsDesktop, showMenu, sideWidth };
+    return { ref, isPortrait, showMenu, sideWidth };
 };
 
 export default useSideMenu;
