@@ -1,16 +1,27 @@
+import { motion } from "motion/react";
 import { COLOR } from "../../constants/Color";
 import { TAG } from "../../constants/Tags";
 import ColoredText from "../Common/ColoredText";
 
-const Detail = () => {
+const Detail = ({ isSectionInView }: { isSectionInView: boolean }) => {
     return (
-        <div className="px-14 h-fit md:pe-4 lg:pe-14 py-8 portrait:p-0">
+        <motion.div
+            animate={{ opacity: isSectionInView ? 1 : 0 }}
+            initial={{ opacity: 0 }}
+            transition={{
+                opacity: {
+                    duration: isSectionInView ? 0.4 : 0,
+                    delay: isSectionInView ? 0.5 : 0,
+                },
+            }}
+            className="px-14 h-fit md:pe-4 lg:pe-14 py-8 portrait:p-0"
+        >
             <div className="border-y-2 flex flex-col gap-3 py-4 lg:py-14 portrait:py-8 text-sm leading-relaxed portrait:leading-snug lg:text-lg">
                 <h1 className="text-3xl font-bold">
                     Hello
                     <ColoredText label=" !," color={COLOR.ABOUT} />
                 </h1>
-                <p className="portrait:text-[0.9rem] whitespace-pre-line indent-8 text-justify leading-relaxed tracking-wide">
+                <p className="portrait:text-[0.9rem] whitespace-pre-line indent-8 text-justify leading-7 tracking-wide">
                     A Computer Science graduate with 6 months of internship
                     experience as Backend Web Developer. I am currently
                     improving my skils in web development and have strong desire
@@ -39,7 +50,7 @@ const Detail = () => {
                     ))}
                 </ul>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

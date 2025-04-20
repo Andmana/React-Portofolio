@@ -1,3 +1,4 @@
+import { useMediaQuery } from "react-responsive";
 import { useTheme } from "../../contexts/ThemeContext";
 
 const ColoredText = ({
@@ -10,9 +11,15 @@ const ColoredText = ({
     flexible?: boolean;
 }) => {
     const { darkMode } = useTheme();
+    const isPortrait = useMediaQuery({ orientation: "portrait" });
+
     return (
         <span
-            style={flexible ? { color: darkMode ? color : "white" } : { color }}
+            style={
+                flexible
+                    ? { color: darkMode ? color : isPortrait ? color : "white" }
+                    : { color }
+            }
         >
             {label}
         </span>

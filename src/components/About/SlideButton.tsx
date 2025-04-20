@@ -8,6 +8,7 @@ const SlideButton = ({ isSectionInView }: SlideButtonProps) => {
     return (
         <motion.div
             animate={{ opacity: isSectionInView ? 1 : 0 }}
+            initial={{ opacity: 0 }}
             transition={{
                 opacity: {
                     duration: isSectionInView ? 0.4 : 0,

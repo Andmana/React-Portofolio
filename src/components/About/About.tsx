@@ -1,4 +1,5 @@
 import { COLOR } from "../../constants/Color";
+import Detail from "./Details";
 import Header from "./Header";
 import Name from "./Name";
 import SlideButton from "./SlideButton";
@@ -68,7 +69,11 @@ const About = () => {
                         </div>
                     </div>
                 </article>
-                <article className="absolute top-0 left-full portrait:static h-full w-7/10 portrait:w-full bg-black "></article>
+                <article className="absolute top-0 left-full portrait:static h-full w-7/10 portrait:w-full flex justify-end">
+                    <div className="h-full w-7/8 portrait:w-full ">
+                        <Detail isSectionInView={isSectionInView} />
+                    </div>
+                </article>
 
                 {/* SLide button for landscape screen */}
                 {!isPortrait && (
