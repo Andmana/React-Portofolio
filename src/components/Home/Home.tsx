@@ -8,7 +8,10 @@ const Home = () => {
     const { ref, isInView } = useHome();
 
     return (
-        <section className="relative px-6 md:px-16 min-h-(--section) w-full portrait:min-h-svh flex">
+        <section
+            ref={ref}
+            className="relative px-6 md:px-16 min-h-(--section) w-full portrait:min-h-svh flex"
+        >
             <div className="relative flex-1 flex justify-center items-center">
                 <div
                     style={{ backgroundColor: COLOR.HOME }}
@@ -18,7 +21,7 @@ const Home = () => {
                     <BounceSign isInView={isInView} />
                 </div>
 
-                <div ref={ref} className="absolute text-header flex flex-col">
+                <div className="absolute text-header flex flex-col">
                     <AnimatedHeader isInView={isInView}>HE</AnimatedHeader>
                     <AnimatedHeader isInView={isInView}>
                         LLO
