@@ -1,12 +1,23 @@
 import { motion } from "motion/react";
 import iconArrow from "../../assets/icons/icon-arrow-down-2.svg";
+import { RefObject } from "react";
 
 interface SlideButtonProps {
     isSectionInView: boolean;
+    isShowMore: boolean;
+    slideButtonRef: RefObject<HTMLDivElement | null>;
+    clickHandle: () => void;
 }
-const SlideButton = ({ isSectionInView }: SlideButtonProps) => {
+const SlideButton = ({
+    isSectionInView,
+    isShowMore,
+    slideButtonRef,
+    clickHandle,
+}: SlideButtonProps) => {
     return (
         <motion.div
+            style={{ translateX: isShowMore ? "100%" : "0%" }}
+            ref={slideButtonRef}
             animate={{ opacity: isSectionInView ? 1 : 0 }}
             initial={{ opacity: 0 }}
             transition={{
@@ -17,14 +28,20 @@ const SlideButton = ({ isSectionInView }: SlideButtonProps) => {
             }}
             className="absolute top-1/2 right-0 transform -translate-y-1/2 "
         >
-            <button className="p-1 aspect-square flex flex-col gap-4 items-center transform -rotate-90 animate-bounce">
+            <button
+                onClick={clickHandle}
+                className="p-1 aspect-square flex flex-col gap-4 items-center transform cursor-pointer animate-bounce"
+                style={{ rotate: isShowMore ? "90deg" : "-90deg" }}
+            >
                 <motion.span
                     className="w-full h-0.5 absolute top-1 left-0 bg-black dark:bg-white origin-right "
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
                     transition={{ duration: 0.3 }}
                 />
-                <span className="text-lg font-semibold rotate-180">MORE</span>
+                <span className="text-lg font-semibold rotate-180">
+                    {isShowMore ? "HIDE" : "MORE"}
+                </span>
                 <img
                     src={iconArrow}
                     alt=""

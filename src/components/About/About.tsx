@@ -13,7 +13,30 @@ const About = () => {
         darkMode,
         headerRef,
         offSet,
+        contentRef,
+        isShowMore,
+        slideButtonRef,
     } = useAbout();
+
+    const clickHandle = () => {
+        console.log("clicked, ", isShowMore);
+        if (contentRef.current) {
+            if (isShowMore) {
+                // Scroll to the left (start) smoothly
+                contentRef.current.scrollTo({
+                    left: 0,
+                    behavior: "smooth",
+                });
+            } else {
+                // Scroll to the right (end) smoothly
+                contentRef.current.scrollTo({
+                    left: contentRef.current.scrollWidth,
+                    behavior: "smooth",
+                });
+            }
+        }
+    };
+
     return (
         <section
             ref={sectionRef}
@@ -21,10 +44,11 @@ const About = () => {
         >
             {/* Scroll landscape screen */}
             <div
+                ref={contentRef}
                 className={
                     isPortrait
                         ? "relative w-full h-fit flex flex-col gap-8"
-                        : "relative w-full h-full overflow-x-scroll flex"
+                        : "relative w-full h-full overflow-x-scroll flex overflow-y-hidden"
                 }
                 style={{ scrollbarWidth: "none" }}
             >
@@ -69,15 +93,27 @@ const About = () => {
                         </div>
                     </div>
                 </article>
-                <article className="absolute top-0 left-full portrait:static h-full w-7/10 portrait:w-full flex justify-end">
+                <article
+                    style={{ scrollbarWidth: "none" }}
+                    className="absolute top-0 left-full portrait:static h-full w-7/10 portrait:w-full flex justify-end overflow-y-scroll"
+                >
                     <div className="h-full w-7/8 portrait:w-full ">
-                        <Detail isSectionInView={isSectionInView} />
+                        <Detail
+                            isSectionInView={isSectionInView}
+                            isShowMore={isShowMore}
+                            isPortrait={isPortrait}
+                        />
                     </div>
                 </article>
 
                 {/* SLide button for landscape screen */}
                 {!isPortrait && (
-                    <SlideButton isSectionInView={isSectionInView} />
+                    <SlideButton
+                        isSectionInView={isSectionInView}
+                        slideButtonRef={slideButtonRef}
+                        clickHandle={clickHandle}
+                        isShowMore={isShowMore}
+                    />
                 )}
             </div>
         </section>

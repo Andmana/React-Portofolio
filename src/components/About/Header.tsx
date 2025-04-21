@@ -3,7 +3,6 @@ import ColoredText from "../Common/ColoredText";
 import { COLOR } from "../../constants/Color";
 
 const Header = ({ isSectionInView }: { isSectionInView: boolean }) => {
-    console.log("COLOR.ABOUT", COLOR.ABOUT);
     return (
         <>
             <AnimatedHeader isInView={isSectionInView}>AB</AnimatedHeader>

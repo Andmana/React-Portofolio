@@ -3,7 +3,13 @@ import { COLOR } from "../../constants/Color";
 import { TAG } from "../../constants/Tags";
 import ColoredText from "../Common/ColoredText";
 
-const Detail = ({ isSectionInView }: { isSectionInView: boolean }) => {
+interface DetailProps {
+    isSectionInView: boolean;
+    isShowMore: boolean;
+    isPortrait: boolean;
+}
+
+const Detail = ({ isSectionInView, isShowMore, isPortrait }: DetailProps) => {
     return (
         <motion.div
             animate={{ opacity: isSectionInView ? 1 : 0 }}
@@ -16,7 +22,16 @@ const Detail = ({ isSectionInView }: { isSectionInView: boolean }) => {
             }}
             className="px-14 h-fit md:pe-4 lg:pe-14 py-8 portrait:p-0"
         >
-            <div className="border-y-2 flex flex-col gap-3 py-4 lg:py-14 portrait:py-8 text-sm leading-relaxed portrait:leading-snug lg:text-lg">
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={
+                    !isPortrait
+                        ? { opacity: isShowMore ? 1 : 0.1 }
+                        : { opacity: 1 }
+                }
+                transition={{ delay: 0.2 }}
+                className="border-y-2 flex flex-col gap-3 py-4 lg:py-14 portrait:py-8 text-sm leading-relaxed portrait:leading-snug lg:text-lg"
+            >
                 <h1 className="text-3xl font-bold">
                     Hello
                     <ColoredText label=" !," color={COLOR.ABOUT} />
@@ -49,7 +64,7 @@ const Detail = ({ isSectionInView }: { isSectionInView: boolean }) => {
                         </li>
                     ))}
                 </ul>
-            </div>
+            </motion.div>
         </motion.div>
     );
 };
