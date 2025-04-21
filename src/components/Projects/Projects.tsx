@@ -1,6 +1,4 @@
 import { COLOR } from "../../constants/Color";
-import AnimatedHeader from "../Common/AnimatedHeader";
-import ColoredText from "../Common/ColoredText";
 import Header from "./Header";
 import useProjects from "./UseProjects";
 
