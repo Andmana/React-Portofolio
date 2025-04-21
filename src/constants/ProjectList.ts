@@ -23,7 +23,7 @@ import netposSs6 from "../assets/screen-captures/Screenshot-Net-6.png";
 import netposSs7 from "../assets/screen-captures/Screenshot-Net-7.png";
 import netposSs8 from "../assets/screen-captures/Screenshot-Net-8.png";
 
-interface IProject {
+export interface IProject {
     name: string;
     description: string;
     tags: string[];
