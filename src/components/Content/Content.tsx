@@ -4,6 +4,7 @@ import SideMenuButton from "./SideMenuButton";
 import { useHomePage } from "../../contexts/HomePageContext";
 import { useTheme } from "../../contexts/ThemeContext";
 import About from "../About";
+import Projects from "../Projects";
 
 const Content = () => {
     const { showMenu, sideWidth } = useHomePage();
@@ -27,7 +28,7 @@ const Content = () => {
             >
                 <Home />
                 <About />
-                <section className="h-screen"></section>
+                <Projects />
             </motion.div>
         </motion.main>
     );
