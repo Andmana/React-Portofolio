@@ -1,27 +1,22 @@
-import pokecardSs1 from "../assets/screen-captures/screenshot-Pokecard-1.png";
-import pokecardSs2 from "../assets/screen-captures/screenshot-Pokecard-2.png";
-import pokecardSs3 from "../assets/screen-captures/screenshot-Pokecard-3.png";
-import pokecardSs4 from "../assets/screen-captures/screenshot-Pokecard-4.png";
+import pokecardSs1 from "../assets/screen-captures/Poke-Card-01.png";
+import pokecardSs2 from "../assets/screen-captures/Poke-Card-02.png";
+import pokecardSs3 from "../assets/screen-captures/Poke-Card-03.png";
+import pokecardSs4 from "../assets/screen-captures/Poke-Card-04.png";
+import pokecardSs5 from "../assets/screen-captures/Poke-Card-05.png";
 
-import todolistSs1 from "../assets/screen-captures/Screenshot-ToDoList-1.png";
-import todolistSs2 from "../assets/screen-captures/Screenshot-ToDoList-2.png";
-import todolistSs3 from "../assets/screen-captures/Screenshot-ToDoList-3.png";
+import todolistSs1 from "../assets/screen-captures/To-Do-List-01.png";
+import todolistSs2 from "../assets/screen-captures/To-Do-List-02.png";
+import todolistSs3 from "../assets/screen-captures/To-Do-List-03.png";
 
-import gamestationSs1 from "../assets/screen-captures/Screenshot-GameStation-1.png";
-import gamestationSs2 from "../assets/screen-captures/Screenshot-GameStation-2.png";
-import gamestationSs3 from "../assets/screen-captures/Screenshot-GameStation-3.png";
-import gamestationSs4 from "../assets/screen-captures/Screenshot-GameStation-4.png";
-import gamestationSs5 from "../assets/screen-captures/Screenshot-GameStation-5.png";
-import gamestationSs6 from "../assets/screen-captures/Screenshot-GameStation-6.png";
+import gamestationSs1 from "../assets/screen-captures/Game-Station-01.png";
+import gamestationSs2 from "../assets/screen-captures/Game-Station-02.png";
+import gamestationSs3 from "../assets/screen-captures/Game-Station-03.png";
+import gamestationSs4 from "../assets/screen-captures/Game-Station-04.png";
 
-import netposSs1 from "../assets/screen-captures/Screenshot-Net-1.png";
-import netposSs2 from "../assets/screen-captures/Screenshot-Net-2.png";
-import netposSs3 from "../assets/screen-captures/Screenshot-Net-3.png";
-import netposSs4 from "../assets/screen-captures/Screenshot-Net-4.png";
-import netposSs5 from "../assets/screen-captures/Screenshot-Net-5.png";
-import netposSs6 from "../assets/screen-captures/Screenshot-Net-6.png";
-import netposSs7 from "../assets/screen-captures/Screenshot-Net-7.png";
-import netposSs8 from "../assets/screen-captures/Screenshot-Net-8.png";
+import netposSs1 from "../assets/screen-captures/POS-01.png";
+import netposSs2 from "../assets/screen-captures/POS-02.png";
+import netposSs3 from "../assets/screen-captures/POS-03.png";
+import netposSs4 from "../assets/screen-captures/POS-04.png";
 
 export interface IProject {
     name: string;
@@ -50,7 +45,13 @@ const PROJECT_LISTS: IProject[] = [
         repository: "https://github.com/Andmana/Memory-App",
         demo: "https://memory-app-andmana.netlify.app/",
         image: pokecardSs4,
-        screenshots: [pokecardSs1, pokecardSs2, pokecardSs3, pokecardSs4],
+        screenshots: [
+            pokecardSs1,
+            pokecardSs2,
+            pokecardSs3,
+            pokecardSs4,
+            pokecardSs5,
+        ],
     },
     {
         name: "Game Station",
@@ -58,14 +59,12 @@ const PROJECT_LISTS: IProject[] = [
         tags: ["REACT", "TAILWIND", "TYPESCRIPT"],
         repository: "https://github.com/Andmana/Game-Station",
         demo: "https://game-station-xxx.netlify.app/",
-        image: gamestationSs2,
+        image: gamestationSs3,
         screenshots: [
             gamestationSs1,
             gamestationSs2,
             gamestationSs3,
             gamestationSs4,
-            gamestationSs5,
-            gamestationSs6,
         ],
     },
     {
@@ -74,17 +73,8 @@ const PROJECT_LISTS: IProject[] = [
             "A web app manages sales transactions, inventory, and customer data",
         tags: ["REACT", "TAILWIND", "TYPESCRIPT"],
         repository: "https://github.com/Andmana/.NET-POS",
-        image: netposSs6,
-        screenshots: [
-            netposSs1,
-            netposSs2,
-            netposSs3,
-            netposSs4,
-            netposSs5,
-            netposSs6,
-            netposSs7,
-            netposSs8,
-        ],
+        image: netposSs2,
+        screenshots: [netposSs1, netposSs2, netposSs3, netposSs4],
     },
 ];
 
