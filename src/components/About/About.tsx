@@ -82,7 +82,7 @@ const About = () => {
                     >
                         {/* SECTIOON TITLE */}
                         <div
-                            className="text-header portrait:text-xl portrait:flex"
+                            className="text-header portrait:text-4xl portrait:flex"
                             ref={headerRef}
                         >
                             <Header isSectionInView={isSectionInView} />
