@@ -4,6 +4,7 @@ import Carousel from "../Carousel";
 import CarouselItems from "../Carousel/CarouselItems";
 import AnimatedHeader from "../Common/AnimatedHeader";
 import ColoredText from "../Common/ColoredText";
+import GithubLink from "./GIthubLink";
 import useProjects from "./UseProjects";
 
 const Projects = () => {
@@ -23,7 +24,7 @@ const Projects = () => {
                                   : "inherit",
                           }
                 }
-                className="relative w-5/6 portrait:w-full h-full flex justify-center items-center p-14"
+                className="relative w-5/6 portrait:w-full h-full flex flex-col justify-around items-center p-14"
             >
                 {/* Carousel */}
                 <div className="relative w-5/8 overflow-hidden">
@@ -33,6 +34,9 @@ const Projects = () => {
                         itemsCount={PROJECT_LISTS.length}
                     />
                 </div>
+
+                <GithubLink />
+
                 {/* Header */}
                 {!isPortrait && (
                     <div className="absolute top-0 right-0 h-full text-header flex items-center">

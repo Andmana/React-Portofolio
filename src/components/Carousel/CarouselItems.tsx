@@ -57,7 +57,7 @@ const CarouselItems = ({ currentIndex, carouselData }: CarouselItemsProps) => {
                                 </div>
                             ))}
                         </div>
-                        <div className="flex gap-4">
+                        <div className="flex gap-8">
                             {item.demo && (
                                 <AnchorTag
                                     label="DEMO"
