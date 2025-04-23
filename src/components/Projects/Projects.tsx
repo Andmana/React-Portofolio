@@ -1,4 +1,7 @@
 import { COLOR } from "../../constants/Color";
+import PROJECT_LISTS from "../../constants/ProjectList";
+import Carousel from "../Carousel";
+import CarouselItems from "../Carousel/CarouselItems";
 import AnimatedHeader from "../Common/AnimatedHeader";
 import ColoredText from "../Common/ColoredText";
 import useProjects from "./UseProjects";
@@ -22,19 +25,17 @@ const Projects = () => {
                 }
                 className="relative w-5/6 portrait:w-full h-full flex justify-center items-center p-14"
             >
+                {/* Carousel */}
+                <div className="relative w-5/8 overflow-hidden">
+                    <Carousel
+                        CarouselItems={CarouselItems}
+                        carouselData={PROJECT_LISTS}
+                        itemsCount={PROJECT_LISTS.length}
+                    />
+                </div>
+                {/* Header */}
                 {!isPortrait && (
-                    <div
-                        style={
-                            isPortrait
-                                ? { backgroundColor: "inherit" }
-                                : {
-                                      backgroundColor: !darkMode
-                                          ? COLOR.PROJECTS
-                                          : "inherit",
-                                  }
-                        }
-                        className="absolute top-0 right-0 h-full text-header flex items-center"
-                    >
+                    <div className="absolute top-0 right-0 h-full text-header flex items-center">
                         <AnimatedHeader
                             isInView={isSectionInView}
                             isVertical={!isPortrait}
