@@ -16,8 +16,8 @@ const ProjectItems = () => {
                             }}
                             className="w-full aspect-video "
                         >
-                            <span className="text-5xl font-black text-stroke">
-                                {index.toString().padStart(2, "0")}
+                            <span className="text-5xl p-2 font-black text-stroke">
+                                {(index + 1).toString().padStart(2, "0")}
                             </span>
                         </div>
 

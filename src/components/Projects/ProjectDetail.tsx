@@ -2,6 +2,7 @@ import { MouseEvent } from "react";
 import { IProject } from "../../constants/ProjectList";
 import { TAG } from "../../constants/Tags";
 import iconLink from "../../assets/icons/icon-link.svg";
+import TechTag from "../Common/TechTag";
 
 const AnchorTag = ({ label, href }: { label: string; href: string }) => {
     const clickHandle = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -43,22 +44,7 @@ const ProjectDetail = ({ project }: { project: IProject }) => {
             {/* Tags */}
             <div className="flex flex-wrap justify-center">
                 {project.tags.map((tag, index) => (
-                    <div
-                        className="p-1 flex items-center gap-2 text-xs"
-                        style={{
-                            backgroundColor: TAG[tag].color,
-                        }}
-                        key={index}
-                    >
-                        <img
-                            src={TAG[tag].icon}
-                            className="w-3 lg:w-4 portrait:w-3"
-                            alt=""
-                        />
-                        <span className="text-[8px] lg:text-[10px] portrait:text-[10px] text-white font-semibold">
-                            {TAG[tag].name}
-                        </span>
-                    </div>
+                    <TechTag tag={tag} key={index} />
                 ))}
             </div>
 

@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { COLOR } from "../../constants/Color";
 import { TAG } from "../../constants/Tags";
 import ColoredText from "../Common/ColoredText";
+import TechTag from "../Common/TechTag";
 
 interface DetailProps {
     isSectionInView: boolean;
@@ -53,15 +54,8 @@ const Detail = ({ isSectionInView, isShowMore, isPortrait }: DetailProps) => {
                 </p>
 
                 <ul className="mt-2 flex flex-wrap gap-2 text-xs">
-                    {Object.entries(TAG).map(([key, tag]) => (
-                        <li
-                            className="p-1 text-white font-semibold flex items-center gap-2"
-                            style={{ backgroundColor: tag.color }}
-                            key={key}
-                        >
-                            <img src={tag.icon} className="w-5 h-5" alt="" />
-                            {tag.name}
-                        </li>
+                    {Object.entries(TAG).map(([key, _]) => (
+                        <TechTag tag={key} key={key} />
                     ))}
                 </ul>
             </motion.div>

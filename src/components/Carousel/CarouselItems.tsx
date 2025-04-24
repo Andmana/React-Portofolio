@@ -27,9 +27,13 @@ const CarouselItems = ({ currentIndex }: CarouselItemsProps) => {
                         stiffness: 400,
                         damping: 50,
                     }}
-                    className="w-full h-full shrink-0 bg-neutral-800 object-cover flex justify-center items-center overflow-hidden backdrop-blur-3xl text-center px-2 lg:px-4"
+                    className="relative w-full h-full shrink-0 bg-neutral-800 object-cover flex justify-center items-center overflow-hidden backdrop-blur-3xl text-center px-2 lg:px-4"
                 >
                     <div className="absolute w-full h-full top-0 left-0 -z-10 bg-[#b9b6b6] dark:bg-[#242424] opacity-60 dark:opacity-50 pointer-none brightness-80 dark:brightness-30"></div>
+                    <span className="absolute top-0 left-0 p-2 text-2xl lg:text-6xl font-black text-stroke">
+                        {(id + 1).toString().padStart(2, "0")}
+                    </span>
+
                     <div className="pointer-events-none flex flex-col gap-1 lg:gap-4  justify-center items-center not-dark:text-black tracking-wider">
                         <ProjectDetail project={project} />
                     </div>
