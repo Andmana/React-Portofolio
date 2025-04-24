@@ -9,6 +9,7 @@ const Home = () => {
 
     return (
         <section
+            id="HOME"
             ref={ref}
             className="relative px-6 md:px-16 min-h-(--section) w-full portrait:min-h-(--section-mobile) flex"
         >
@@ -32,7 +33,7 @@ const Home = () => {
 
             <div
                 ref={centerRef}
-                className="absolute top-1/2 left-1/2 w-2 h-2 opacity-0 -z-10 transform -translate-1/2"
+                className="absolute top-1/2 left-0 w-full h-2 opacity-0 -z-10 transform -translate-y-1/2"
             ></div>
         </section>
     );
