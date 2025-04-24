@@ -5,6 +5,7 @@ import { useHomePage } from "../../contexts/HomePageContext";
 
 const MobileSideBarButton = () => {
     const { setShowMenu, showMenu } = useHomePage();
+
     return (
         <motion.button
             whileHover={showMenu ? { rotate: 180 } : { scale: 1.1 }}

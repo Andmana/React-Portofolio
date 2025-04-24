@@ -7,15 +7,16 @@ import useAbout from "./UseAbout";
 
 const About = () => {
     const {
+        darkMode,
         isPortrait,
         sectionRef,
         isSectionInView,
-        darkMode,
         headerRef,
         offSet,
         contentRef,
         isShowMore,
         slideButtonRef,
+        centerRef,
     } = useAbout();
 
     const clickHandle = () => {
@@ -116,6 +117,11 @@ const About = () => {
                     />
                 )}
             </div>
+
+            <div
+                ref={centerRef}
+                className="absolute top-1/2 left-1/2 w-2 h-2 opacity-0 -z-10 transform -translate-1/2"
+            ></div>
         </section>
     );
 };

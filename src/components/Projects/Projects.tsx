@@ -3,11 +3,13 @@ import ColoredText from "../Common/ColoredText";
 import GithubLink from "./GIthubLink";
 import ProjectItems from "./ProjectItems";
 import useProjects from "./UseProjects";
-import { COLOR } from "../../constants/Color";
 import Carousel from "../Carousel";
+import { COLOR } from "../../constants/Color";
 
 const Projects = () => {
-    const { darkMode, isPortrait, sectionRef, isSectionInView } = useProjects();
+    const { darkMode, isPortrait, sectionRef, isSectionInView, centerRef } =
+        useProjects();
+
     return (
         <section
             ref={sectionRef}
@@ -86,6 +88,10 @@ const Projects = () => {
                     </AnimatedHeader>
                 )}
             </div>
+            <div
+                ref={centerRef}
+                className="absolute top-1/2 left-1/2 w-2 h-2 opacity-0 -z-10 transform -translate-1/2"
+            ></div>
         </section>
     );
 };

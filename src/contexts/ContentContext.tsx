@@ -18,10 +18,6 @@ const ContentContext = createContext<ContentContextType | undefined>(undefined);
 export const ContentProvider = ({ children }: { children: ReactNode }) => {
     const [activeContent, setActiveContent] = useState("HOME");
 
-    useEffect(() => {
-        console.log("activeContent : ", activeContent);
-    }, [activeContent]);
-
     return (
         <ContentContext.Provider value={{ activeContent, setActiveContent }}>
             {children}

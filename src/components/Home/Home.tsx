@@ -5,7 +5,7 @@ import BounceSign from "./BounceSign";
 import useHome from "./UseHome";
 
 const Home = () => {
-    const { ref, isInView } = useHome();
+    const { ref, isInView, centerRef } = useHome();
 
     return (
         <section
@@ -29,6 +29,11 @@ const Home = () => {
                     </AnimatedHeader>
                 </div>
             </div>
+
+            <div
+                ref={centerRef}
+                className="absolute top-1/2 left-1/2 w-2 h-2 opacity-0 -z-10 transform -translate-1/2"
+            ></div>
         </section>
     );
 };

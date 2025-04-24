@@ -2,9 +2,12 @@ import { useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { useTheme } from "../../contexts/ThemeContext";
+import { useContent } from "../../contexts/ContentContext";
 
 const useAbout = () => {
     const { darkMode } = useTheme();
+    const { setActiveContent } = useContent();
+
     const isPortrait = useMediaQuery({ orientation: "portrait" });
     const sectionRef = useRef<HTMLDivElement>(null);
     const isSectionInView = useInView(sectionRef);
@@ -15,6 +18,13 @@ const useAbout = () => {
     const contentRef = useRef<HTMLDivElement>(null);
     const slideButtonRef = useRef<HTMLDivElement>(null);
     const [isShowMore, setIsShowMore] = useState(false);
+
+    const centerRef = useRef(null);
+    const isCenterInView = useInView(centerRef);
+
+    useEffect(() => {
+        if (isCenterInView) setActiveContent("ABOUT");
+    }, [isCenterInView]);
 
     useEffect(() => {
         const handleResize = () => {
@@ -55,15 +65,16 @@ const useAbout = () => {
     }, [isPortrait]);
 
     return {
+        darkMode,
+        isPortrait,
         sectionRef,
         isSectionInView,
         headerRef,
-        isPortrait,
-        darkMode,
-        offSet,
         contentRef,
         slideButtonRef,
+        offSet,
         isShowMore,
+        centerRef,
     };
 };
 
