@@ -1,12 +1,10 @@
-import { COLOR } from "../../constants/Color";
-import PROJECT_LISTS from "../../constants/ProjectList";
-import Carousel from "../Carousel";
-import CarouselItems from "../Carousel/CarouselItems";
 import AnimatedHeader from "../Common/AnimatedHeader";
 import ColoredText from "../Common/ColoredText";
 import GithubLink from "./GIthubLink";
 import ProjectItems from "./ProjectItems";
 import useProjects from "./UseProjects";
+import { COLOR } from "../../constants/Color";
+import Carousel from "../Carousel";
 
 const Projects = () => {
     const { darkMode, isPortrait, sectionRef, isSectionInView } = useProjects();
@@ -30,11 +28,7 @@ const Projects = () => {
                 {/* Carousel */}
                 {!isPortrait && (
                     <div className="relative w-5/8 h-fit overflow-hidden">
-                        <Carousel
-                            CarouselItems={CarouselItems}
-                            carouselData={PROJECT_LISTS}
-                            itemsCount={PROJECT_LISTS.length}
-                        />
+                        <Carousel />
                     </div>
                 )}
 

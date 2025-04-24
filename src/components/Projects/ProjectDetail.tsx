@@ -15,7 +15,7 @@ const AnchorTag = ({ label, href }: { label: string; href: string }) => {
             onClick={clickHandle}
             className="flex items-center gap-1 pointer-events-auto cursor-pointer"
         >
-            <span className="text-lg lg:text-xl portrait:text-base font-semibold ">
+            <span className="text-sm lg:text-lg portrait:text-sm font-semibold ">
                 {label}
             </span>
             <img
@@ -31,10 +31,12 @@ const ProjectDetail = ({ project }: { project: IProject }) => {
     return (
         <>
             {/* Title */}
-            <h2 className="portrait:text-xl font-bold">{project.name}</h2>
+            <h2 className="text-lg portrait:text-xl landscape:lg:text-4xl font-bold">
+                {project.name}
+            </h2>
 
             {/* Description */}
-            <p className="portrait:text-sm font-semibold text-center ">
+            <p className=" text-sm lg:text-lg portrait:text-sm font-semibold text-center ">
                 {project.description}
             </p>
 
@@ -50,10 +52,10 @@ const ProjectDetail = ({ project }: { project: IProject }) => {
                     >
                         <img
                             src={TAG[tag].icon}
-                            className="w-5 portrait:w-3"
+                            className="w-3 lg:w-4 portrait:w-3"
                             alt=""
                         />
-                        <span className="portrait:text-[10px] text-white font-semibold">
+                        <span className="text-[8px] lg:text-[10px] portrait:text-[10px] text-white font-semibold">
                             {TAG[tag].name}
                         </span>
                     </div>

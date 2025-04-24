@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import PROJECT_LISTS from "../../constants/ProjectList";
-import ProjectDetail from "../Projects/ProjectDetail";
+import ProjectDetail from "./ProjectDetail";
 
 interface CarouselItemsProps {
     currentIndex: number;

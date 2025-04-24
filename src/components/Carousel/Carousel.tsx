@@ -1,27 +1,16 @@
-import { ComponentType, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import useCarousel from "./UseCarousel";
 import { motion } from "motion/react";
 import CarouselDots from "./CarouselDots";
 import { COLOR } from "../../constants/Color";
+import CarouselItems from "./CarouselItems";
+import PROJECT_LISTS from "../../constants/ProjectList";
 
-const SPRING_OPTIONS = {};
-
-interface CarouselProps {
-    CarouselItems: ComponentType<{
-        currentIndex: number;
-        carouselData: unknown;
-    }>;
-    itemsCount?: number;
-    carouselData?: unknown;
-}
-
+const SPRING_OPTIONS = { type: "spring", mass: 3, stiffness: 400, damping: 50 };
 const DRAG_BUFFER = 30;
 
-const Carousel = ({
-    CarouselItems,
-    itemsCount = 0,
-    carouselData,
-}: CarouselProps) => {
+const Carousel = () => {
+    const itemCount = PROJECT_LISTS.length;
     const { darkMode, currentIndex, setCurrentIndex, dragX } = useCarousel();
     const [countDown, setCoundown] = useState(200);
 
@@ -32,7 +21,7 @@ const Carousel = ({
                     const x = dragX.get();
                     if (x === 0) {
                         setCurrentIndex((pv) => {
-                            if (pv === itemsCount - 1) {
+                            if (pv === itemCount - 1) {
                                 return 0;
                             }
                             return pv + 1;
@@ -45,7 +34,6 @@ const Carousel = ({
         }, 50);
 
         return () => {
-            // clearInterval(intervalRef);
             clearInterval(interval);
         };
     }, []);
@@ -53,7 +41,7 @@ const Carousel = ({
     const onDragEnd = () => {
         const x = dragX.get();
 
-        if (x <= -DRAG_BUFFER && currentIndex < itemsCount - 1) {
+        if (x <= -DRAG_BUFFER && currentIndex < itemCount - 1) {
             setCurrentIndex((pv) => pv + 1);
         } else if (x >= DRAG_BUFFER && currentIndex > 0) {
             setCurrentIndex((pv) => pv - 1);
@@ -87,16 +75,13 @@ const Carousel = ({
                 transition={SPRING_OPTIONS}
                 onDragEnd={onDragEnd}
             >
-                <CarouselItems
-                    currentIndex={currentIndex}
-                    carouselData={carouselData}
-                />
+                <CarouselItems currentIndex={currentIndex} />
             </motion.div>
 
             <CarouselDots
                 currentIndex={currentIndex}
                 setCurrentIndex={setCurrentIndex}
-                itemsCount={itemsCount}
+                itemsCount={itemCount}
                 darkMode={darkMode}
             />
         </div>
