@@ -1,6 +1,5 @@
 import { MouseEvent } from "react";
 import { IProject } from "../../constants/ProjectList";
-import { TAG } from "../../constants/Tags";
 import iconLink from "../../assets/icons/icon-link.svg";
 import TechTag from "../Common/TechTag";
 
