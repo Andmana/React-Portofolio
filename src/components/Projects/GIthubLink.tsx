@@ -16,7 +16,7 @@ const GithubLink = () => {
                 MORE ON GITHUB
                 <img
                     src={iconGithub}
-                    className="w-6 dark-filter-(--whitenig)"
+                    className="w-6 dark:filter-(--whitening)"
                     alt=""
                 />
                 <motion.span

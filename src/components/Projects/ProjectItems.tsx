@@ -83,10 +83,14 @@ const AnchorTag = ({ label, href }: { label: string; href: string }) => {
         <a
             href={href}
             onClick={clickHandle}
-            className="font-bold dark:filter-(--whitening) flex items-center gap-1 pointer-events-auto cursor-pointer"
+            className="font-bold flex items-center gap-1 pointer-events-auto cursor-pointer"
         >
             {label}
-            <img src={iconLink} alt="" className="w-5 inline-block" />
+            <img
+                src={iconLink}
+                alt=""
+                className="w-5 dark:filter-(--whitening)"
+            />
         </a>
     );
 };
