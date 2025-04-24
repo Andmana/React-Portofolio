@@ -20,4 +20,11 @@
     --text-header--line-height: 0.8;
 }
 
+.text-stroke {
+    -webkit-text-stroke: 1px white;
+    @variant dark {
+        -webkit-text-stroke: 1px black;
+    }
+}
+
 @custom-variant dark (&:where(.dark, .dark *));

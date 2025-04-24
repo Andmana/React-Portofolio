@@ -22,7 +22,7 @@ const Carousel = ({
     itemsCount = 0,
     carouselData,
 }: CarouselProps) => {
-    const { currentIndex, setCurrentIndex, dragX } = useCarousel();
+    const { darkMode, currentIndex, setCurrentIndex, dragX } = useCarousel();
     const [countDown, setCoundown] = useState(200);
 
     useEffect(() => {
@@ -61,15 +61,18 @@ const Carousel = ({
     };
 
     return (
-        <div className="relative w-full aspect-16/9 flex items-center flex-col gap-4 ">
+        <div className="relative w-full flex items-center flex-col gap-4 ">
             <motion.div
-                className={`h-1 w-[199px] bg-white dark:bg-[${COLOR.PROJECTS}]`}
+                className="h-1 w-[199px]"
+                style={{ backgroundColor: darkMode ? COLOR.PROJECTS : "white" }}
                 initial={{ scaleX: 1 }}
                 animate={{ scaleX: countDown / 199 }}
                 transition={{ ease: "linear", duration: 0 }}
             />
+
+            {/* Carousel items contrainer */}
             <motion.div
-                className="w-full  h-full flex items-center active:cursor-grabbing"
+                className="w-full aspect-16/9 flex items-center active:cursor-grabbing"
                 drag="x"
                 dragConstraints={{
                     left: 0,
@@ -94,11 +97,10 @@ const Carousel = ({
                 currentIndex={currentIndex}
                 setCurrentIndex={setCurrentIndex}
                 itemsCount={itemsCount}
+                darkMode={darkMode}
             />
         </div>
     );
-
-    return <></>;
 };
 
 export default Carousel;

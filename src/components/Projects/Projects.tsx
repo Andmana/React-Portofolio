@@ -5,6 +5,7 @@ import CarouselItems from "../Carousel/CarouselItems";
 import AnimatedHeader from "../Common/AnimatedHeader";
 import ColoredText from "../Common/ColoredText";
 import GithubLink from "./GIthubLink";
+import ProjectItems from "./ProjectItems";
 import useProjects from "./UseProjects";
 
 const Projects = () => {
@@ -12,7 +13,7 @@ const Projects = () => {
     return (
         <section
             ref={sectionRef}
-            className="relative w-full h-(--section) portrait:h-fit px-6 md:px-14 flex  portrait:flex-col-reverse isolate "
+            className="relative w-full h-(--section) portrait:h-fit px-6 md:px-14 flex portrait:flex-col-reverse portrait:gap-8 isolate "
         >
             <div
                 style={
@@ -24,16 +25,21 @@ const Projects = () => {
                                   : "inherit",
                           }
                 }
-                className="relative w-5/6 portrait:w-full h-full flex flex-col justify-around items-center p-14"
+                className="relative w-5/6 portrait:w-full h-full flex flex-col justify-center items-center p-4 portrait:p-0 gap-8"
             >
                 {/* Carousel */}
-                <div className="relative w-5/8 overflow-hidden">
-                    <Carousel
-                        CarouselItems={CarouselItems}
-                        carouselData={PROJECT_LISTS}
-                        itemsCount={PROJECT_LISTS.length}
-                    />
-                </div>
+                {!isPortrait && (
+                    <div className="relative w-5/8 h-fit overflow-hidden">
+                        <Carousel
+                            CarouselItems={CarouselItems}
+                            carouselData={PROJECT_LISTS}
+                            itemsCount={PROJECT_LISTS.length}
+                        />
+                    </div>
+                )}
+
+                {/* Projects */}
+                {isPortrait && <ProjectItems />}
 
                 <GithubLink />
 

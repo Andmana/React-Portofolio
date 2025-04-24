@@ -31,33 +31,34 @@ const CarouselItems = ({ currentIndex, carouselData }: CarouselItemsProps) => {
                         stiffness: 400,
                         damping: 50,
                     }}
-                    className="w-full h-full shrink-0 bg-neutral-800 object-cover flex justify-center items-center overflow-hidden backdrop-blur-3xl text-center px-4"
+                    className="w-full h-full shrink-0 bg-neutral-800 object-cover flex justify-center items-center overflow-hidden backdrop-blur-3xl text-center px-2 lg:px-4"
                 >
-                    <div className="absolute w-full h-full top-0 left-0 -z-10 bg-[#b9b6b6] dark:bg-[#242424] opacity-60 dark:opacity-50  pointer-none brightness-80 dark:brightness-30"></div>
+                    <div className="absolute w-full h-full top-0 left-0 -z-10 bg-[#b9b6b6] dark:bg-[#242424] opacity-60 dark:opacity-50 pointer-none brightness-80 dark:brightness-30"></div>
                     <div className="pointer-events-none flex flex-col gap-4 justify-center items-center not-dark:text-black">
-                        <h2 className="text-lg lg:text-4xl font-bold inset-shadow-sm shadow-blue-500/50">
+                        {/* Project Name */}
+                        <h2 className="lg:text-4xl font-bold inset-shadow-sm shadow-blue-500/50">
                             {item.name}
                         </h2>
-                        <p className="text-base lg:text-xl font-semibold ">
+                        <p className="text-sm lg:text-xl font-semibold ">
                             {item.description}
                         </p>
                         <div className="flex">
                             {item.tags.map((tag, index) => (
                                 <div
-                                    className="p-1 text-white font-semibold flex items-center gap-2 text-xs"
+                                    className="p-1 text-white font-semibold flex items-center gap-2 text-[10px] lg:text-xs"
                                     style={{ backgroundColor: TAG[tag].color }}
                                     key={index}
                                 >
                                     <img
                                         src={TAG[tag].icon}
-                                        className="w-5 h-5"
+                                        className="w-3 h-3 lg:w-5 lg:h-5"
                                         alt=""
                                     />
                                     {TAG[tag].name}
                                 </div>
                             ))}
                         </div>
-                        <div className="flex gap-8">
+                        <div className="flex flex-wrap gap-8">
                             {item.demo && (
                                 <AnchorTag
                                     label="DEMO"
