@@ -1,8 +1,8 @@
 import { MouseEvent } from "react";
 import PROJECT_LISTS from "../../constants/ProjectList";
 import iconLink from "../../assets/icons/icon-link.svg";
-import { TAG } from "../../constants/Tags";
 import { COLOR } from "../../constants/Color";
+import ProjectDetail from "./ProjectDetail";
 
 const ProjectItems = () => {
     return (
@@ -23,43 +23,8 @@ const ProjectItems = () => {
                             </span>
                         </div>
 
-                        <div className="w-full flex flex-col items-center gap-2">
-                            <h2 className="text-xl font-bold inset-shadow-sm">
-                                {project.name}
-                            </h2>
-                            <p className="text-sm font-semibold text-center ">
-                                {project.description}
-                            </p>
-                            <div className="flex flex-wrap justify-center">
-                                {project.tags.map((tag, index) => (
-                                    <div
-                                        className="p-1 text-white font-semibold flex items-center gap-2 text-xs"
-                                        style={{
-                                            backgroundColor: TAG[tag].color,
-                                        }}
-                                        key={index}
-                                    >
-                                        <img
-                                            src={TAG[tag].icon}
-                                            className="w-3 h-3 lg:w-5 lg:h-5"
-                                            alt=""
-                                        />
-                                        {TAG[tag].name}
-                                    </div>
-                                ))}
-                            </div>
-                            <div className="flex flex-wrap gap-8">
-                                {project.demo && (
-                                    <AnchorTag
-                                        label="DEMO"
-                                        href={project.demo}
-                                    ></AnchorTag>
-                                )}
-                                <AnchorTag
-                                    label="REPO"
-                                    href={project.repository}
-                                ></AnchorTag>
-                            </div>
+                        <div className="w-full flex flex-col items-center gap-2 tracking-wider">
+                            <ProjectDetail project={project} />
                         </div>
                     </div>
                     {index + 1 != PROJECT_LISTS.length && (
@@ -71,27 +36,6 @@ const ProjectItems = () => {
                 </>
             ))}
         </div>
-    );
-};
-
-const AnchorTag = ({ label, href }: { label: string; href: string }) => {
-    const clickHandle = (event: MouseEvent<HTMLAnchorElement>) => {
-        event.preventDefault();
-        window.open(href, "_blank");
-    };
-    return (
-        <a
-            href={href}
-            onClick={clickHandle}
-            className="font-bold flex items-center gap-1 pointer-events-auto cursor-pointer"
-        >
-            {label}
-            <img
-                src={iconLink}
-                alt=""
-                className="w-5 dark:filter-(--whitening)"
-            />
-        </a>
     );
 };
 
