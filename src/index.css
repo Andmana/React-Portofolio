@@ -27,32 +27,38 @@
     }
 }
 
-/* Target the scrollbar itself */
-html::-webkit-scrollbar {
-    width: 8px; /* Sets the width of the scrollbar */
-}
+@layer base {
+    body {
+        background-color: #f1f5f9;
+        @variant dark {
+            background-color: #27272a;
+        }
+    }
+    /* Target the scrollbar itself */
+    html::-webkit-scrollbar {
+        width: 8px; /* This will only affect the thumb's width */
+        background: transparent; /* Make the track area transparent */
+    }
 
-/* Target the track (background area where the thumb slides) */
-html::-webkit-scrollbar-track {
-    background: #ffffff; /* Light gray color for the scrollbar track */
-}
+    /* Target the track - make it transparent */
+    html::-webkit-scrollbar-track {
+        background: transparent; /* Fully transparent track */
+    }
 
-html.dark::-webkit-scrollbar-track {
-    background: #242424; /* Light gray color for the scrollbar track */
-}
+    /* Target the thumb */
+    html::-webkit-scrollbar-thumb {
+        background: linear-gradient(#0ca5e9, #facc18);
+        border-radius: 4px; /* Optional: makes the thumb rounded */
+    }
 
-/* Target the thumb (the draggable part of the scrollbar) */
-html::-webkit-scrollbar-thumb {
-    background: linear-gradient(#0ca5e9, #facc18);
-}
+    /* Hover styles for the thumb */
+    html::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(#f87171, #242424);
+    }
 
-/* Change the thumb color when hovered */
-html.dark::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(#f87171, #fff);
-}
-
-html::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(#f87171, #242424);
+    html.dark::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(#f87171, #fff);
+    }
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
