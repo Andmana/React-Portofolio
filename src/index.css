@@ -21,7 +21,7 @@
 }
 
 .text-stroke {
-    -webkit-text-stroke: 1px white;
+    -webkit-text-stroke: 1px #0ea5e9;
     @variant dark {
         -webkit-text-stroke: 1px black;
     }

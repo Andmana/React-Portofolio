@@ -1,6 +1,4 @@
-import { MouseEvent } from "react";
 import PROJECT_LISTS from "../../constants/ProjectList";
-import iconLink from "../../assets/icons/icon-link.svg";
 import { COLOR } from "../../constants/Color";
 import ProjectDetail from "./ProjectDetail";
 
@@ -18,7 +16,7 @@ const ProjectItems = () => {
                             }}
                             className="w-full aspect-video "
                         >
-                            <span className="text-4xl font-black text-stroke">
+                            <span className="text-5xl font-black text-stroke">
                                 {index.toString().padStart(2, "0")}
                             </span>
                         </div>
