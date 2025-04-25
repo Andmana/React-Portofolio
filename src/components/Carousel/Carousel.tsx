@@ -9,7 +9,7 @@ import PROJECT_LISTS from "../../constants/ProjectList";
 const SPRING_OPTIONS = { type: "spring", mass: 3, stiffness: 400, damping: 50 };
 const DRAG_BUFFER = 30;
 
-const Carousel = () => {
+const Carousel = ({ isSectionInView }: { isSectionInView: boolean }) => {
     const itemCount = PROJECT_LISTS.length;
     const { darkMode, currentIndex, setCurrentIndex, dragX } = useCarousel();
     const [countDown, setCoundown] = useState(200);
@@ -49,7 +49,17 @@ const Carousel = () => {
     };
 
     return (
-        <div className="relative w-full flex items-center flex-col gap-4 ">
+        <motion.div
+            className="relative w-full flex items-center flex-col gap-4 "
+            animate={{ opacity: isSectionInView ? 1 : 0 }}
+            initial={{ opacity: 0 }}
+            transition={{
+                opacity: {
+                    duration: isSectionInView ? 0.4 : 0,
+                    delay: isSectionInView ? 0.5 : 0,
+                },
+            }}
+        >
             <motion.div
                 className="h-1 w-[199px]"
                 style={{ backgroundColor: darkMode ? COLOR.PROJECTS : "white" }}
@@ -84,7 +94,7 @@ const Carousel = () => {
                 itemsCount={itemCount}
                 darkMode={darkMode}
             />
-        </div>
+        </motion.div>
     );
 };
 

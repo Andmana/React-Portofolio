@@ -1,10 +1,21 @@
 import PROJECT_LISTS from "../../constants/ProjectList";
 import { COLOR } from "../../constants/Color";
 import ProjectDetail from "./ProjectDetail";
+import { motion } from "motion/react";
 
-const ProjectItems = () => {
+const ProjectItems = ({ isSectionInView }: { isSectionInView: boolean }) => {
     return (
-        <div className="w-full flex flex-col gap-6">
+        <motion.div
+            animate={{ opacity: isSectionInView ? 1 : 0 }}
+            initial={{ opacity: 0 }}
+            transition={{
+                opacity: {
+                    duration: isSectionInView ? 0.4 : 0,
+                    delay: isSectionInView ? 0.5 : 0,
+                },
+            }}
+            className="w-full flex flex-col gap-6"
+        >
             {PROJECT_LISTS.map((project, index) => (
                 <>
                     <div className="w-full flex flex-col gap-4">
@@ -33,7 +44,7 @@ const ProjectItems = () => {
                     )}
                 </>
             ))}
-        </div>
+        </motion.div>
     );
 };
 

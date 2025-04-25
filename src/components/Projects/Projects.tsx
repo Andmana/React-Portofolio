@@ -31,14 +31,16 @@ const Projects = () => {
                 {/* Carousel */}
                 {!isPortrait && (
                     <div className="relative w-5/8 h-fit overflow-hidden">
-                        <Carousel />
+                        <Carousel isSectionInView={isSectionInView} />
                     </div>
                 )}
 
                 {/* Projects */}
-                {isPortrait && <ProjectItems />}
+                {isPortrait && (
+                    <ProjectItems isSectionInView={isSectionInView} />
+                )}
 
-                <GithubLink />
+                <GithubLink isSectionInView={isSectionInView} />
 
                 {/* Header */}
                 {!isPortrait && (
