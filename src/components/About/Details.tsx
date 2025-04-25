@@ -21,7 +21,7 @@ const Detail = ({ isSectionInView, isShowMore, isPortrait }: DetailProps) => {
                     delay: isSectionInView ? 0.5 : 0,
                 },
             }}
-            className="px-14 h-fit md:pe-4 lg:pe-14 py-8 portrait:p-0"
+            className="px-14 h-full portrait:h-fit md:pe-4 lg:pe-14 py-8 portrait:p-0"
         >
             <motion.div
                 initial={{ opacity: 0 }}
@@ -31,7 +31,7 @@ const Detail = ({ isSectionInView, isShowMore, isPortrait }: DetailProps) => {
                         : { opacity: 1 }
                 }
                 transition={{ delay: 0.2 }}
-                className="border-y-2 flex flex-col gap-3 py-4 lg:py-14 portrait:py-8 text-sm leading-relaxed portrait:leading-snug lg:text-lg"
+                className="h-full border-y-2 flex flex-col landscape:justify-center gap-4 py-4 lg:py-14 portrait:py-8 text-sm leading-relaxed portrait:leading-snug lg:text-lg"
             >
                 <h1 className="text-3xl font-bold">
                     Hello
