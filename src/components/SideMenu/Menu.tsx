@@ -33,7 +33,7 @@ const Menu = () => {
                 </h2>
                 <div className="text-left portrait:text-right portrait:text-sm font-medium">
                     <p className="">ANDREAS P. PUTRA S.</p>
-                    <p>andre.pputras@gmail.com</p>
+                    <p>andreas.pputras@gmail.com</p>
                 </div>
                 <SocialMedia />
             </div>
