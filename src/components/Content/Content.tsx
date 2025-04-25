@@ -5,10 +5,13 @@ import { useHomePage } from "../../contexts/HomePageContext";
 import { useTheme } from "../../contexts/ThemeContext";
 import About from "../About";
 import Projects from "../Projects";
+import { useMediaQuery } from "react-responsive";
+import SectionDots from "./SectionDots";
 
 const Content = () => {
-    const { showMenu, sideWidth } = useHomePage();
     const { darkMode } = useTheme();
+    const { showMenu, sideWidth } = useHomePage();
+    const isPortrait = useMediaQuery({ orientation: "portrait" });
 
     return (
         <motion.main className="relative w-full">
@@ -30,6 +33,7 @@ const Content = () => {
                 <About />
                 <Projects />
             </motion.div>
+            {!isPortrait && <SectionDots />}
         </motion.main>
     );
 };
