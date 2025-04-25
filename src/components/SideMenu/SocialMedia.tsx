@@ -10,10 +10,14 @@ const contacts = [
         href: "https://www.instagram.com/andmana.putra/",
         icon: iconIg,
     },
-    { name: "LinkedIn", href: "https://github.com/Andmana", icon: iconIn },
+    {
+        name: "LinkedIn",
+        href: "https://www.linkedin.com/in/andreas-permana-4a6b63241/",
+        icon: iconIn,
+    },
     {
         name: "Github",
-        href: "https://www.linkedin.com/in/andreas-permana-4a6b63241/",
+        href: "https://github.com/Andmana",
         icon: iconGh,
     },
 ];
