@@ -11,7 +11,7 @@ const Home = () => {
         <section
             id="HOME"
             ref={ref}
-            className="relative px-6 md:px-16 min-h-(--section) w-full portrait:min-h-(--section-mobile) flex"
+            className="relative px-6 md:px-14 min-h-(--section) w-full portrait:min-h-(--section-mobile) flex"
         >
             <div className="relative flex-1 flex justify-center items-center">
                 <div

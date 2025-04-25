@@ -42,7 +42,7 @@ const About = () => {
         <section
             id="ABOUT"
             ref={sectionRef}
-            className="relative w-full h-(--section) portrait:h-fit px-6 md:px-14 isolate"
+            className="relative w-full h-(--section) portrait:h-fit px-6 md:px-14 mt-14 isolate"
         >
             {/* Scroll landscape screen */}
             <div

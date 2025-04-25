@@ -14,7 +14,7 @@ const Projects = () => {
         <section
             id="PROJECTS"
             ref={sectionRef}
-            className="relative w-full h-(--section) portrait:h-fit px-6 md:px-14 flex portrait:flex-col-reverse portrait:gap-8 isolate "
+            className="relative w-full h-(--section) portrait:h-fit px-6 md:px-14 mt-14 flex portrait:flex-col-reverse portrait:gap-8 isolate "
         >
             <div
                 style={

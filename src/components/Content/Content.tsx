@@ -11,7 +11,7 @@ const Content = () => {
     const { darkMode } = useTheme();
 
     return (
-        <motion.main className="relative w-full py-14 ">
+        <motion.main className="relative w-full">
             <SideMenuButton />
             <motion.div
                 initial={{ x: 0 }}
@@ -24,7 +24,7 @@ const Content = () => {
                         : "brightness(1)",
                 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
-                className="flex flex-col gap-[58px] "
+                className="w-full my-14 flex flex-col gap-[1px]"
             >
                 <Home />
                 <About />

@@ -19,9 +19,10 @@ const SectionAnchor = ({ label }: { label: string }) => {
             // Scroll to #id label
             const targetElement = document.getElementById(label);
             if (targetElement) {
-                targetElement.scrollIntoView({
+                const elementRect = targetElement.getBoundingClientRect();
+                window.scrollTo({
+                    top: window.scrollY + elementRect.top - 56, // Adjust for marginTop
                     behavior: "smooth", // Smooth scrolling
-                    block: "start", // Align to the top of the viewport
                 });
             }
         }, 500);
