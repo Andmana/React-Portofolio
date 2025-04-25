@@ -5,6 +5,7 @@ import ProjectItems from "./ProjectItems";
 import useProjects from "./UseProjects";
 import Carousel from "../Carousel";
 import { COLOR } from "../../constants/Color";
+import ScrollTopButton from "./ScrollTopButton";
 
 const Projects = () => {
     const { darkMode, isPortrait, sectionRef, isSectionInView, centerRef } =
@@ -58,6 +59,12 @@ const Projects = () => {
                         </AnimatedHeader>
                     </div>
                 )}
+
+                {isPortrait && (
+                    <div className="absolute bottom-4 right-2">
+                        <ScrollTopButton />
+                    </div>
+                )}
             </div>
             <div
                 style={
@@ -69,7 +76,7 @@ const Projects = () => {
                                   : "inherit",
                           }
                 }
-                className="flex-1/6 portrait:w-full h-full text-header portrait:text-4xl flex items-center"
+                className="relative flex-1/6 portrait:w-full h-full text-header portrait:text-4xl flex items-center"
             >
                 <AnimatedHeader
                     isInView={isSectionInView}
@@ -90,10 +97,16 @@ const Projects = () => {
                         />
                     </AnimatedHeader>
                 )}
+
+                {!isPortrait && (
+                    <div className="absolute bottom-8 left-4">
+                        <ScrollTopButton />
+                    </div>
+                )}
             </div>
             <div
                 ref={centerRef}
-                className="absolute top-1/2 left-0 w-full h-2 opacity-0 -z-10 transform -translate-y-1/2"
+                className="absolute top-1/2 left-0 w-full h-2 portrait:h-2/10 opacity-0 -z-10 transform -translate-y-1/2"
             ></div>
         </section>
     );
