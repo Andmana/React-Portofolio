@@ -10,7 +10,7 @@ const useAbout = () => {
 
     const isPortrait = useMediaQuery({ orientation: "portrait" });
     const sectionRef = useRef<HTMLDivElement>(null);
-    const isSectionInView = useInView(sectionRef);
+    const isSectionInView = useInView(sectionRef, { margin: "-1px" });
 
     const headerRef = useRef<HTMLDivElement>(null);
     const [offSet, setOffSet] = useState(0); // Hedaer positioning purposes

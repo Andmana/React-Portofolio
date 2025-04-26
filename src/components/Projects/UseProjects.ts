@@ -10,7 +10,7 @@ const useProjects = () => {
 
     const isPortrait = useMediaQuery({ orientation: "portrait" });
     const sectionRef = useRef(null);
-    const isSectionInView = useInView(sectionRef);
+    const isSectionInView = useInView(sectionRef, { margin: "-1px" });
 
     const centerRef = useRef(null);
     const isCenterInView = useInView(centerRef);

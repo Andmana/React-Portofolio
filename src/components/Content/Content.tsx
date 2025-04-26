@@ -27,7 +27,7 @@ const Content = () => {
                         : "brightness(1)",
                 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
-                className="w-full my-14 flex flex-col gap-[1px]"
+                className="w-full my-14"
             >
                 <Home />
                 <About />

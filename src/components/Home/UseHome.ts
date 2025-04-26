@@ -6,7 +6,7 @@ const useHome = () => {
     const { setActiveContent } = useContent();
 
     const ref = useRef(null);
-    const isInView = useInView(ref);
+    const isInView = useInView(ref, { margin: "-1px" });
 
     const centerRef = useRef(null);
     const isCenterInView = useInView(centerRef);
