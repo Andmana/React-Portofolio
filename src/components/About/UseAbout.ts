@@ -19,8 +19,9 @@ const useAbout = () => {
     const slideButtonRef = useRef<HTMLDivElement>(null);
     const [isShowMore, setIsShowMore] = useState(false);
 
-    const centerRef = useRef(null);
-    const isCenterInView = useInView(centerRef);
+    const isCenterInView = useInView(sectionRef, {
+        margin: isPortrait ? "-45% 0px" : "-49.9% 0px",
+    });
 
     useEffect(() => {
         if (isCenterInView) setActiveContent("ABOUT");
@@ -74,7 +75,6 @@ const useAbout = () => {
         slideButtonRef,
         offSet,
         isShowMore,
-        centerRef,
     };
 };
 
