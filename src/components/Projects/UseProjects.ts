@@ -12,14 +12,15 @@ const useProjects = () => {
     const sectionRef = useRef(null);
     const isSectionInView = useInView(sectionRef, { margin: "-1px" });
 
-    const centerRef = useRef(null);
-    const isCenterInView = useInView(centerRef);
+    const isCenterInView = useInView(sectionRef, {
+        margin: isPortrait ? "-33% 0px" : "-49.9% 0px",
+    });
 
     useEffect(() => {
         if (isCenterInView) setActiveContent("PROJECTS");
     }, [isCenterInView]);
 
-    return { darkMode, isPortrait, sectionRef, isSectionInView, centerRef };
+    return { darkMode, isPortrait, sectionRef, isSectionInView };
 };
 
 export default useProjects;

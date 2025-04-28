@@ -8,8 +8,7 @@ import { COLOR } from "../../constants/Color";
 import ScrollTopButton from "./ScrollTopButton";
 
 const Projects = () => {
-    const { darkMode, isPortrait, sectionRef, isSectionInView, centerRef } =
-        useProjects();
+    const { darkMode, isPortrait, sectionRef, isSectionInView } = useProjects();
 
     return (
         <section
@@ -104,10 +103,6 @@ const Projects = () => {
                     </div>
                 )}
             </div>
-            <div
-                ref={centerRef}
-                className="absolute top-1/2 left-0 w-full h-2 portrait:h-2/10 opacity-0 -z-10 transform -translate-y-1/2"
-            ></div>
         </section>
     );
 };
