@@ -8,17 +8,16 @@ const useHome = () => {
     const ref = useRef(null);
     const isInView = useInView(ref, { margin: "-1px" });
 
-    const centerRef = useRef(null);
-    const isCenterInView = useInView(centerRef);
+    const isCenterInView = useInView(ref, { margin: "-49.9% 0px" });
 
     useEffect(() => {
         if (isCenterInView) setActiveContent("HOME");
+        console.log("isCenterInView : ", isCenterInView);
     }, [isCenterInView]);
 
     return {
         ref,
         isInView,
-        centerRef,
     };
 };
 
