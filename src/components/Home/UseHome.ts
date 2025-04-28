@@ -12,7 +12,6 @@ const useHome = () => {
 
     useEffect(() => {
         if (isCenterInView) setActiveContent("HOME");
-        console.log("isCenterInView : ", isCenterInView);
     }, [isCenterInView]);
 
     return {
