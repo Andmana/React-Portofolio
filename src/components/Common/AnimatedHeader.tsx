@@ -18,13 +18,15 @@ const AnimatedHeader = ({
         transition: { duration: 0.4, delay: isInView ? 0.1 : 0 },
     };
     return (
-        <div
-            className="overflow-hidden"
-            style={{
-                writingMode: isVertical ? "vertical-rl" : "horizontal-tb",
-            }}
-        >
-            <motion.div {...textMotionProps}>{children}</motion.div>
+        <div className="overflow-hidden">
+            <motion.div
+                {...textMotionProps}
+                style={{
+                    writingMode: isVertical ? "vertical-rl" : "horizontal-tb",
+                }}
+            >
+                {children}
+            </motion.div>
         </div>
     );
 };
