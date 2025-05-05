@@ -71,7 +71,7 @@ const PROJECT_LISTS: IProject[] = [
         name: "Point Of Sale",
         description:
             "A web app manages sales transactions, inventory, and customer data",
-        tags: ["REACT", "TAILWIND", "TYPESCRIPT"],
+        tags: ["DOTNET", "BOOTSTRAP", "MSSQL"],
         repository: "https://github.com/Andmana/.NET-POS",
         image: netposSs2,
         screenshots: [netposSs1, netposSs2, netposSs3, netposSs4],
